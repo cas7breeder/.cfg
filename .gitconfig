@@ -1,0 +1,14 @@
+[user]
+	name = cas7breeder
+[core]
+	editor = vim
+[alias]
+	st = status
+	co = checkout
+	cm = commit
+	br = branch
+	cb = checkout -b
+	lga = log --graph --oneline --all --decorate
+[filter "demail_git_config"]
+	clean = "sed '/^\\s*email\\s*=/'d"
+

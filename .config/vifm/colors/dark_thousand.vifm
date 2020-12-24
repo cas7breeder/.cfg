@@ -1,0 +1,40 @@
+" Reset all styles first
+highlight clear
+
+" Good directory foreground: 31, *32, 68, 73, 104; * more eyestrain
+highlight Directory     cterm=bold              ctermfg=031     ctermbg=default
+highlight Border        cterm=none              ctermfg=035     ctermbg=default
+highlight TopLine       cterm=none              ctermfg=040     ctermbg=default
+highlight TopLineSel    cterm=none              ctermfg=040     ctermbg=238
+highlight Win           cterm=none              ctermfg=250     ctermbg=default
+highlight CurrLine      cterm=bold,inverse      ctermfg=default ctermbg=default
+highlight OtherLine     cterm=bold,underline    ctermfg=default ctermbg=default
+highlight Selected      cterm=none              ctermfg=003     ctermbg=008
+
+highlight JobLine       cterm=bold              ctermfg=250     ctermbg=008
+highlight StatusLine    cterm=none              ctermfg=250     ctermbg=238
+
+highlight ErrorMsg      cterm=bold              ctermfg=160     ctermbg=default
+highlight WildMenu      cterm=bold              ctermfg=015     ctermbg=250
+highlight CmdLine       cterm=none              ctermfg=007     ctermbg=default
+highlight Executable    cterm=none              ctermfg=041     ctermbg=default
+highlight Device        cterm=bold              ctermfg=247     ctermbg=088
+highlight Fifo          cterm=none              ctermfg=178     ctermbg=default
+highlight Socket        cterm=bold              ctermfg=126     ctermbg=default
+highlight Link          cterm=none              ctermfg=079     ctermbg=default
+highlight BrokenLink    cterm=none              ctermfg=009     ctermbg=default
+
+highlight {*.tar,*.tgz,*.arc,*.arj,*.taz,*.lha,*.lz4,*.lzh,*.lzma,*.tlz,*.txz,*.tzo,*.t7z,*.zip,*.z,*.dz,*.gz,*.lrz,*.lz,*.lzo,*.xz,*.zst,*.tzst,*.bz2,*.bz,*.tbz,*.tbz2,*.tz,*.deb,*.rpm,*.jar,*.war,*.ear,*.sar,*.rar,*.alz,*.ace,*.zoo,*.cpio,*.7z,*.rz,*.cab,*.wim,*.swm,*.dwm,*.esd,*.tb2,*.trz,*.tz2,*.apk,*.gzip} ctermfg=173 ctermbg=default
+
+highlight {*.patch,*.diff,*.py,*.cpp,*.hpp,*.mk,*.c,*.h,*.cpp,*.hpp,*.cc,*.hs,*.php,*.lua,*.vim,*.vifm,*.asm,*.s,*.java,*.cxx,*.c++,*.go,*.pl,*.pm,*.t,*.cs,*.asp,*.dart,*.js,*.rb,*.scala,*.ts,*.coffee,*.ml,*.mli,*.rs,*.sql,*.qml,vifmrc,vimrc,.vimrc} ctermfg=217 ctermbg=default
+highlight {*.sh,*.bash,*.zsh,*.bat,*.btm,*.cmd,*.com,*.dll,*.exe,*.run,*.msu,*.msi,*.fish} ctermfg=217 ctermbg=default
+
+"TODO
+"highlight {Makefile,Makefile.am,Makefile.in,Makefile.win,*.mak,*.mk,*.m4,*.ac,configure,CMakeLists.txt,*.cmake,*.pro,*.pri,*.sln} cterm=bold ctermfg=229 ctermbg=default
+"highlight {*.djvu,*.htm,*.html,*.shtml,*.css,*.markdown,*.md,*[^0-9].[1-9],*.mkd,*.org,*.pandoc,*.pdc,*.epub,*.fb2,*.tex,*.xhtml,*.xml,*.pptx,*.ppt,*.doc,*.docx,*.xls,*.xlsm,*.xlsx,*.mobi,*.rtf,*.less,*.scss,*.log,*.rss,*.xul,*.json,*.yaml,*.yml,*.desktop,*.csv,*.plist,*.ini,*.cfg,*.rc,*.conf,*.spec,*.qrc} cterm=bold ctermfg=229 ctermbg=default
+"highlight {*.pdf,*.txt,COPYRIGHT,COPYING*,BUGS,ChangeLog*,FAQ,INSTALL*,LICENCE,LICENSE,NEWS,README,README.*,AUTHORS,TODO,THANKS} ctermfg=229 ctermbg=default
+
+highlight {*.aac,*.anx,*.asf,*.au,*.avi,*.ts,*.axa,*.axv,*.dl,*.divx,*.flac,*.gl,*.m2a,*.m2v,*.m4a,*.m4p,*.m4v,*.mid,*.midi,*.mka,*.mkv,*.mov,*.mp3,*.mp4,*.fli,*.flc,*.flv,*.mp4v,*.mjpg,*.mjpeg,*.mpc,*.mpeg,*.mpg,*.nuv,*.oga,*.ogg,*.ogm,*.ogv,*.ogx,*.opus,*.pbm,*.pgm,*.qt,*.ra,*.ram,*.rm,*.rmvb,*.spx,*.vob,*.wav,*.wma,*.wmv,*.xvid,*.yuv,*.ac3,*.webm,*.cue,*.ape} ctermfg=147 ctermbg=default
+
+highlight {*.bmp,*.gif,*.jpeg,*.jpg,*.ico,*.png,*.ppm,*.svg,*.svgz,*.tga,*.tif,*.tiff,*.xbm,*.xcf,*.xpm,*.xspf,*.xwd,*.ai,*.mng,*.pcx,*.webp,*.cgm,*.emf} ctermfg=132 ctermbg=default
+

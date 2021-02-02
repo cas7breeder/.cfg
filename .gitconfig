@@ -7,7 +7,7 @@
 [alias]
 	st = status
 	co = checkout
-	cm = commit
+	cm = commit -m
 	br = branch
 	cb = checkout -b
 	lga = log --graph --oneline --all --decorate

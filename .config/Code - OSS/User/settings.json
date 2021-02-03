@@ -1,11 +1,12 @@
 {
     "window.zoomLevel": 1,
-    "workbench.colorTheme": "Visual Studio Dark",
+    "workbench.colorTheme": "Default Dark+",
     "zenMode.hideTabs": false,
     "editor.minimap.enabled": false,
     "window.menuBarVisibility": "toggle",
     "breadcrumbs.enabled": false,
     "editor.scrollbar.verticalScrollbarSize": 5,
     "workbench.settings.openDefaultKeybindings": true,
-    "workbench.settings.openDefaultSettings": true
+    "workbench.settings.openDefaultSettings": true,
+    "workbench.iconTheme": "quill-icons-minimal"
 }

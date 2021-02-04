@@ -137,14 +137,14 @@ hi ColorColumn                     guibg=#5A7085                                
 hi Cursor          guifg=#1B1D1E   guibg=#FF358B                       ctermfg=234     ctermbg=202
 hi CursorLine                      guibg=#000000                                       ctermbg=15
 hi Directory       guifg=#01B0F0                                       ctermfg=39
-hi VertSplit       guifg=#F8FFF9   guibg=#5A7085                       ctermfg=15      ctermbg=60
+hi VertSplit       guifg=#000000   guibg=#000000                       ctermfg=15      ctermbg=60
 hi Folded          guifg=#5A7085   guibg=#FFDC00                       ctermfg=60      ctermbg=220
 hi IncSearch       guifg=#1B1D1E   guibg=#a7a7a7                       ctermfg=234     ctermbg=248
 hi LineNr          guifg=#5A7085   guibg=#000000                       ctermfg=60      ctermbg=0
 hi NonText         guifg=#eeeeee   guibg=#1B1D1E                       ctermfg=7       ctermbg=234
 hi Search          guifg=#F8FFF9   guibg=#FF358B                       ctermfg=15      ctermbg=204
-hi StatusLine      guifg=#000000   guibg=#01B0F0    gui=bold           ctermfg=15      ctermbg=39
-hi StatusLineNC    guifg=#F8FFF9   guibg=#5A7085                       ctermfg=15      ctermbg=60
+hi StatusLine      guifg=#333333   guibg=#01B0F0    gui=bold           ctermfg=15      ctermbg=39
+hi StatusLineNC    guifg=#000000   guibg=#BBBBBB                       ctermfg=15      ctermbg=60
 hi Todo            guifg=#000000   guibg=#FFDC00    gui=bold           ctermfg=0       ctermbg=220
 hi Visual          guifg=#F8FFF9   guibg=#FF358B                                       ctermbg=60
 hi ModeMsg         guifg=#000000   guibg=#FFDC00                       ctermfg=0       ctermbg=220

@@ -10,6 +10,7 @@
     dfi = diff --cached
 	co = checkout
 	cm = commit -m
+	cma = commit --amend
 	br = branch
 	cb = checkout -b
 	lga = log --graph --oneline --all --decorate
@@ -19,4 +20,24 @@
 
 [pull]
 	ff = only
+
+[color "status"]
+    added = 76
+    changed = 124
+    untracked = 124
+    branch = 39 bold
+    localBranch = 76
+    remoteBranch = 124
+    nobranch = 124 bold
+    unmerged = 124 bold
+
+[color "branch"]
+    current = 76 bold
+    remote = 124
+    upstream = 124 bold
+
+[color "diff"]
+    old = "#d80000"
+    new = "#00d000"
+    whitespace = "#d80000" "#eeeeee" bold
 

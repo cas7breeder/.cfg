@@ -200,10 +200,10 @@ colors:
 
 # TODO
   # Normal colors
-  normal:
+  #normal:
   #  black:   '0x1c1f24'
-    red:     '0xd80000'
-    green:   '0x00d000'
+  #  red:     '0xd80000'
+  #  green:   '0x00d000'
   #  yellow:  '0xda8548'
   #  blue:    '0x51afef'
   #  magenta: '0xc678dd'

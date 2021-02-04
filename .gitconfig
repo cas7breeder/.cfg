@@ -32,7 +32,7 @@
     unmerged = 124 bold
 
 [color "branch"]
-    current = 76 bold
+    current = 39 bold
     remote = 124
     upstream = 124 bold
 

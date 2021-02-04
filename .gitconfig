@@ -33,6 +33,7 @@
 
 [color "branch"]
     current = 39 bold
+    local = 76 bold
     remote = 124
     upstream = 124 bold
 
@@ -40,4 +41,10 @@
     old = "#d80000"
     new = "#00d000"
     whitespace = "#d80000" "#eeeeee" bold
+
+[color "decorate"]
+    branch = 76 bold
+    remoteBranch = 124 bold
+    tag = 99 bold
+    HEAD = 39 bold
 

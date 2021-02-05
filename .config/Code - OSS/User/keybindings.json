@@ -35,17 +35,17 @@
 
     // Resize panels
     {
-        "key": "ctrl+q",
+        "key": "ctrl+shift+q",
         "command": "workbench.action.evenEditorWidths",
         "when": "editorFocus"
     },
     {
-        "key": "ctrl+shift+q",
+        "key": "ctrl+q",
         "command": "workbench.action.toggleMaximizedPanel",
         "when": "terminalFocus"
     },
     {
-        "key": "ctrl+shift+q",
+        "key": "ctrl+q",
         "command": "workbench.action.minimizeOtherEditors",
         "when": "editorFocus"
     },

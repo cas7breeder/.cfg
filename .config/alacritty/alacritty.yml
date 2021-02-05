@@ -498,7 +498,7 @@ background_opacity: 1.0
 # be mapped to the `ReceiveChar` action. Alternatively, you can use `None` for
 # a no-op if you do not wish to receive input characters for that binding.
 key_bindings:
-    # (Windows, Linux, and BSD only)
+  # (Windows, Linux, and BSD only)
   - { key: C,        mods: Control|Shift, action: Copy             }
   - { key: V,        mods: Control|Shift, action: Paste            }
   - { key: Insert,   mods: Shift,         action: PasteSelection   }
@@ -507,8 +507,11 @@ key_bindings:
   - { key: Plus,     mods: Control,       action: IncreaseFontSize }
   - { key: Minus,    mods: Control,       action: DecreaseFontSize }
 
-  - { key: Paste,                    action: Paste                            }
-  - { key: Copy,                     action: Copy                             }
-  - { key: L,         mods: Control, action: ClearLogNotice                   }
-  - { key: L,         mods: Control, chars: "\x0c"                            }
+  - { key: Paste,                         action: Paste                            }
+  - { key: Copy,                          action: Copy                             }
+  - { key: L,        mods: Control,       action: ClearLogNotice                   }
+  - { key: L,        mods: Control,       chars: "\x0c"                            }
+
+  # Vi Mode
+  - { key: 5,     mods: Shift,         mode: Vi|~Search,     action: Last       }
 

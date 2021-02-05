@@ -3,7 +3,7 @@
     "workbench.colorTheme": "Default Dark+",
     "zenMode.hideTabs": false,
     "editor.minimap.enabled": false,
-    "window.menuBarVisibility": "toggle",
+    "window.menuBarVisibility": "hidden",
     "breadcrumbs.enabled": false,
     "editor.scrollbar.verticalScrollbarSize": 5,
     "workbench.settings.openDefaultKeybindings": true,

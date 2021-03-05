@@ -2,6 +2,21 @@
 # ~/.bashrc
 #
 
+# Setting environment
+export EDITOR=/usr/bin/vim
+export VISUAL=${EDITOR}
+
+export HISTTIMEFORMAT="%F %H:%M "
+# In memory bash history size
+export HISTSIZE=5000
+# History size in .bash_history file
+export HISTFILESIZE=500000
+export HISTCONTROL="ignorespace"
+
+# Ignore such as these
+export HISTIGNORE="ls:ls -@(?|??):ll:pwd:pwd -P:clear:history:history @(?|??|???)"
+export HISTIGNORE="${HISTIGNORE}:git st:git br:vim"
+
 [[ $- != *i* ]] && return
 
 colors() {
@@ -117,8 +132,11 @@ shopt -s expand_aliases
 
 # export QT_SELECT=4
 
-# Enable history appending instead of overwriting.  #139609
+# Enable history appending instead of overwriting when closing the session  #139609
 shopt -s histappend
+
+# Bash attempts to save all lines of a multiple-line command in the same history entry
+shopt -s cmdhist
 
 #
 # # ex - archive extractor

@@ -7,5 +7,6 @@
     "editor.scrollbar.verticalScrollbarSize": 5,
     "workbench.settings.openDefaultKeybindings": true,
     "workbench.settings.openDefaultSettings": true,
-    "workbench.iconTheme": "quill-icons-minimal"
+    "workbench.iconTheme": "quill-icons-minimal",
+    "files.trimTrailingWhitespace": true
 }

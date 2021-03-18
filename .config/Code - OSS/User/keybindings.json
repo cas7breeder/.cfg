@@ -8,6 +8,14 @@
         "key": "ctrl+q",
         "command": "-workbench.action.quit"
     },
+    {
+        "key": "ctrl+=",
+        "command": "-workbench.action.zoomIn"
+    },
+    {
+        "key": "ctrl+-",
+        "command": "-workbench.action.zoomOut"
+    },
 
     // Open workspace
     {

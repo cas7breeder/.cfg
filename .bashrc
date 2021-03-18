@@ -119,6 +119,8 @@ alias ll='ls -Alh'
 alias wlc='wl-copy'
 alias wlp='wl-paste'
 
+alias lsblknl='lsblk -e 7' # exclude loop devices - cut snap device spam
+
 xhost +local:root > /dev/null 2>&1
 
 complete -cf sudo

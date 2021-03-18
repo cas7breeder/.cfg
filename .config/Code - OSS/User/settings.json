@@ -3,10 +3,14 @@
     "workbench.colorTheme": "Default Dark+",
     "zenMode.hideTabs": false,
     "editor.minimap.enabled": false,
+    "editor.wordWrap": "off",
     "window.menuBarVisibility": "hidden",
     "editor.scrollbar.verticalScrollbarSize": 5,
     "workbench.settings.openDefaultKeybindings": true,
     "workbench.settings.openDefaultSettings": true,
     "workbench.iconTheme": "quill-icons-minimal",
-    "files.trimTrailingWhitespace": true
+    // Controls whether opened editors show as preview. Preview editors are reused until they are kept (e.g. via double click or editing) and show up with an italic font style.
+    "workbench.editor.enablePreview": false,
+    "files.trimTrailingWhitespace": true,
+    "zenMode.hideLineNumbers": false
 }

@@ -120,6 +120,8 @@ alias wlc='wl-copy'
 alias wlp='wl-paste'
 
 alias lsblknl='lsblk -e 7' # exclude loop devices - cut snap device spam
+alias dfreal='df -x squashfs -x devtmpfs -x tmpfs' # exclude pseudo filesystems
+
 
 xhost +local:root > /dev/null 2>&1
 

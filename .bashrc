@@ -107,10 +107,12 @@ fi
 
 unset use_color safe_term match_lhs sh
 
-alias cp="cp -i"                          # confirm before overwriting something
-alias df='df -hT'                         # human-readable sizes, include filesystem type
-alias du='du -h'                          # human-readable sizes
-alias free='free -m'                      # show sizes in MB
+alias cp="cp -i"                                    # confirm before overwriting something
+alias df='df -hT'                                   # human-readable sizes, include filesystem type
+alias dfreal='df -x squashfs -x devtmpfs -x tmpfs'  # exclude pseudo filesystems
+alias dfnl='df -x squashfs'                         # exclude squashfs: used by snap
+alias du='du -h'                                    # human-readable sizes
+alias free='free -m'                                # show sizes in MB
 alias np='nano -w PKGBUILD'
 alias more=less
 
@@ -120,7 +122,6 @@ alias wlc='wl-copy'
 alias wlp='wl-paste'
 
 alias lsblknl='lsblk -e 7' # exclude loop devices - cut snap device spam
-alias dfreal='df -x squashfs -x devtmpfs -x tmpfs' # exclude pseudo filesystems
 
 
 xhost +local:root > /dev/null 2>&1

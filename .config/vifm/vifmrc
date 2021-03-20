@@ -178,6 +178,11 @@ filextype {*.pdf}
     \ {View with evince PDF viewer}
     \ evince %c %i &,
 
+" TODO don't ignore yet, complains about defunct kernel thread? :O
+filextype {*.epub}
+    \ {View with Calibre}
+    \ python3 /usr/bin/ebook-edit %c &,
+
 fileviewer {*.pdf},<application/pdf> pdftotext -nopgbrk %c -
 
 " PostScript

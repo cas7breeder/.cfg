@@ -1,5 +1,6 @@
 [user]
 	name = cas7breeder
+	email = castbreeder@posteo.net
 
 [core]
 	editor = vim
@@ -15,6 +16,7 @@
 	cb = checkout -b
 	lga = log --graph --oneline --all --decorate
 
+# Disabled for now as it tends to delete the email record between checkouts
 [filter "demail_git_config"]
 	clean = "sed '/^\\s*email\\s*=/'d"
 

@@ -83,7 +83,7 @@ set wildstyle=popup
 " Display suggestions in normal, visual and view modes for keys, marks and
 " registers (at most 5 files).  In other view, when available.
 
-set suggestoptions=normal,visual,view,otherpane,keys,marks,registers
+set suggestoptions=normal,visual,view,otherpane,keys,marks,registers,delay:250
 
 " Ignore case in search patterns unless it contains at least one uppercase
 " letter
@@ -499,3 +499,4 @@ nnoremap <c-u> <c-w>x
 "     vifm --server-name "$VIFM_SERVER_NAME" --remote +"cd '$PWD'"
 "
 " let $VIFM_SERVER_NAME = v:servername
+

@@ -15,7 +15,12 @@ set shiftwidth=4
 set softtabstop=4
 
 set termguicolors
-colorscheme getafe
+
+" Remove pipe charecters from vertical split
+" Preserve trailing space after \ here: don't trim trailing whitespace
+set fillchars+=vert:\ 
 
 nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+
+colorscheme getafe
 

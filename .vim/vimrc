@@ -17,3 +17,5 @@ set softtabstop=4
 set termguicolors
 colorscheme getafe
 
+nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+

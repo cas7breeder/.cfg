@@ -51,3 +51,5 @@
     tag = 99 bold
     HEAD = 39 bold
 
+[init]
+	defaultBranch = master

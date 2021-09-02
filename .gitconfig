@@ -16,6 +16,7 @@
 	br = branch
 	cb = checkout -b
 	lga = log --graph --oneline --all --decorate
+	lo = log --oneline
 
 # Disabled for now as it tends to delete the email record between checkouts
 [filter "demail_git_config"]

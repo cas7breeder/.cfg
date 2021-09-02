@@ -22,5 +22,8 @@ set fillchars+=vert:\
 
 nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
+" Write file with sudo rights: sudo tee the same file
+cmap w!! w !sudo tee > /dev/null %
+
 colorscheme getafe
 

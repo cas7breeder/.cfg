@@ -13,7 +13,7 @@
 	co = checkout
 	cm = commit -m
 	cma = commit --amend
-	br = branch
+	br = branch -vv
 	cb = checkout -b
 	lga = log --graph --oneline --all --decorate
 	lo = log --oneline

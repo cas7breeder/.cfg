@@ -123,6 +123,11 @@ alias wlp='wl-paste'
 
 alias lsblknl='lsblk -e 7' # exclude loop devices - cut snap device spam
 
+alias dk='docker'
+alias dcs='docker compose'
+alias dkcpf='docker container prune -f'
+
+alias vimtmp='vim $(mktemp)'
 
 xhost +local:root > /dev/null 2>&1
 

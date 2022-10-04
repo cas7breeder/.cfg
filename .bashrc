@@ -48,6 +48,10 @@ colors() {
 
 [ -r /usr/share/bash-completion/bash_completion ] && . /usr/share/bash-completion/bash_completion
 
+parse_git_branch() {
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \*\1 /'
+}
+
 set -o vi
 
 # Change the window title of X terminals
@@ -89,7 +93,7 @@ if ${use_color} ; then
 	if [[ ${EUID} == 0 ]] ; then
 		PS1='\[\033[01;31m\][\h\[\033[01;36m\] \W\[\033[01;31m\]]\$\[\033[00m\] '
 	else
-		PS1='\[\033[00;38;5;34m\][\u@\h\[\033[00;38;5;253m\] \W\[\033[00;38;5;34m\]]\$\[\033[00m\] '
+		PS1="\[\033[00;38;5;34m\][\u@\h\[\033[00;38;5;253m\] \W\[\033[00;38;5;34m\]]\[\033[00;38;5;39m\]\$(parse_git_branch)\[\033[00;38;5;34m\]\$\[\033[00m\] "
 	fi
 
 	alias ls='ls --color=auto'
@@ -173,4 +177,3 @@ ex ()
     echo "'$1' is not a valid file"
   fi
 }
-

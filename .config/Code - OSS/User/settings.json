@@ -1,5 +1,4 @@
 {
-    "window.zoomLevel": 1,
     "workbench.colorTheme": "Default Dark+",
     "zenMode.hideTabs": false,
     "editor.minimap.enabled": false,
@@ -13,5 +12,7 @@
     "workbench.editor.enablePreview": false,
     "files.trimTrailingWhitespace": true,
     "zenMode.hideLineNumbers": false,
-	"editor.fontSize": 15.5
+    "editor.fontSize": 15.5,
+    "breadcrumbs.symbolPath": "off",
+    "window.zoomLevel": 1
 }

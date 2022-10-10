@@ -21,8 +21,8 @@
     stu = stash --include-untracked
     stl = stash list
     stp = stash pop
-    poh = push origin HEAD
-    pohf = push -f origin HEAD
+    po = push origin HEAD
+    pof = push -f origin HEAD
 
 # Disabled for now as it tends to delete the email record between checkouts
 [filter "demail_git_config"]

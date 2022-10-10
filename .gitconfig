@@ -18,8 +18,10 @@
 	lga = log --graph --oneline --all --decorate
 	lo = log --oneline
     stu = stash --include-untracked
-    poh = push origin HEAD
-    pohf = push -f origin HEAD
+    stl = stash list
+    stp = stash pop
+    po = push origin HEAD
+    pof = push -f origin HEAD
 
 # Disabled for now as it tends to delete the email record between checkouts
 [filter "demail_git_config"]

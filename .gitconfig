@@ -1,6 +1,9 @@
 [user]
-	name = cas7breeder
-	email = castbreeder@posteo.net
+#    name = cas7breeder
+#    email = castbreeder@posteo.net
+
+	name = Algirdas Vepštas
+	email = av@tribepayments.com
 
 [core]
 	editor = vim

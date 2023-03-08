@@ -130,6 +130,7 @@ alias lsblknl='lsblk -e 7' # exclude loop devices - cut snap device spam
 alias dk='docker'
 alias dcs='docker compose'
 alias dkcpf='docker container prune -f'
+alias dkbp='dk image prune -f && dk builder prune -f'
 
 alias vimtmp='vim $(mktemp)'
 

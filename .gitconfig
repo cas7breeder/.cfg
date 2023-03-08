@@ -1,13 +1,11 @@
 [user]
-#    name = cas7breeder
-#    email = castbreeder@posteo.net
-
-	name = Algirdas Vepštas
-	email = av@tribepayments.com
+    name = cas7breeder
+    email = castbreeder@posteo.net
 
 [core]
 	editor = vim
 	autocrlf = input
+	commentChar = ";"
 
 [alias]
 	st = status
@@ -20,6 +18,11 @@
 	cb = checkout -b
 	lga = log --graph --oneline --all --decorate
 	lo = log --oneline
+    stu = stash --include-untracked
+    stl = stash list
+    stp = stash pop
+    po = push origin HEAD
+    pof = push -f origin HEAD
 
 # Disabled for now as it tends to delete the email record between checkouts
 [filter "demail_git_config"]

@@ -14,5 +14,7 @@
     "zenMode.hideLineNumbers": false,
     "editor.fontSize": 15.5,
     "breadcrumbs.symbolPath": "off",
-    "window.zoomLevel": 1
+    "yaml.customTags": [
+    "!reference sequence"
+    ]
 }

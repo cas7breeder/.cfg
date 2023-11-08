@@ -131,6 +131,8 @@ alias dk='docker'
 alias dcs='docker compose'
 alias dkcpf='docker container prune -f'
 
+# Make vim nvim
+alias vim='/usr/bin/nvim'
 alias vimtmp='vim $(mktemp)'
 
 xhost +local:root > /dev/null 2>&1

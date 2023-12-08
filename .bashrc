@@ -122,7 +122,7 @@ alias more=less
 
 alias config='/usr/bin/git --git-dir=$HOME/.cfg --work-tree=$HOME'
 alias ll='ls -Alh'
-alias wlc='wl-copy'
+alias wlc='wl-copy --type text/plain'
 alias wlp='wl-paste'
 
 alias lsblknl='lsblk -e 7' # exclude loop devices - cut snap device spam

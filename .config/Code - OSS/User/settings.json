@@ -1,6 +1,5 @@
 {
     "workbench.colorTheme": "Default Dark+",
-    "editor.minimap.enabled": false,
     "editor.wordWrap": "off",
     "window.menuBarVisibility": "hidden",
     "editor.scrollbar.verticalScrollbarSize": 5,

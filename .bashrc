@@ -121,6 +121,7 @@ alias np='nano -w PKGBUILD'
 alias more=less
 
 alias config='/usr/bin/git --git-dir=$HOME/.cfg --work-tree=$HOME'
+alias sshconfig='/usr/bin/git --git-dir=$HOME/.ssh.git --work-tree=$HOME/.ssh'
 alias ll='ls -Alh'
 alias wlc='wl-copy --type text/plain'
 alias wlp='wl-paste'

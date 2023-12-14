@@ -1,12 +1,14 @@
 set hidden true
 set ignorecase true
 set icons true
+set drawbox
+set info size:time
 
 set relativenumber true
 
 # KEYMAPS
 #map x cut
-#map DD delete
+##map DD delete
 #map p paste
 #map y copy
 #map mf mkfile
@@ -15,3 +17,11 @@ set relativenumber true
 map gd cd ~/Documents
 map gl cd ~/learn
 map gw cd ~/work
+
+cmd move-parent &{{
+    dironly="setlocal '$(dirname "$PWD")' dironly"
+    lf -remote "send $id :updir; $dironly true; $1; $dironly false; open"
+}}
+
+map J move-parent down
+map K move-parent up

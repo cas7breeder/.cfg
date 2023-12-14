@@ -2,6 +2,8 @@ set hidden true
 set ignorecase true
 set icons true
 
+set relativenumber true
+
 # KEYMAPS
 #map x cut
 #map DD delete
@@ -10,6 +12,6 @@ set icons true
 #map mf mkfile
 #map md mkdir
 
-
-map gd cd ~/documents
+map gd cd ~/Documents
+map gl cd ~/learn
 map gw cd ~/work

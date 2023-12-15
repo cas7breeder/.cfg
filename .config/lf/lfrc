@@ -1,10 +1,10 @@
-set hidden true
-set ignorecase true
-set icons true
 set drawbox
+set hidden true
+set icons true
+set ignorecase true
 set info size:time
-
 set relativenumber true
+set scrolloff 4
 
 # KEYMAPS
 #map x cut
@@ -13,6 +13,9 @@ set relativenumber true
 #map y copy
 #map mf mkfile
 #map md mkdir
+
+#map e $$EDITOR "$f"
+map e $/usr/bin/nvim "$f"
 
 map gd cd ~/Documents
 map gl cd ~/learn
@@ -25,3 +28,11 @@ cmd move-parent &{{
 
 map J move-parent down
 map K move-parent up
+
+
+#TODO
+# dedicated keys for file opener actions
+#map o &mimeopen $f
+#map O $mimeopen --ask $f
+# file specified with $Env:f ?
+# remap C to rename instead of r

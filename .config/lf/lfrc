@@ -14,9 +14,11 @@ set scrolloff 4
 #map mf mkfile
 #map md mkdir
 
+# TODO make alacritty spawn bash first and only then lf, so that env vars set in bashrc can be used
 #map e $$EDITOR "$f"
-map e $/usr/bin/nvim "$f"
+map e $/usr/bin/nvim -O "$f" "$f"
 
+# Locations
 map gd cd ~/Documents
 map gl cd ~/learn
 map gw cd ~/work
@@ -36,3 +38,4 @@ map K move-parent up
 #map O $mimeopen --ask $f
 # file specified with $Env:f ?
 # remap C to rename instead of r
+# https://github.com/gokcehan/lf/blob/master/etc/lfrc.example

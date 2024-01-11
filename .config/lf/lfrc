@@ -18,6 +18,9 @@ set scrolloff 4
 #map e $$EDITOR "$f"
 map e $/usr/bin/nvim -O "$f" "$f"
 
+# Open GitUI
+map gi $/usr/bin/gitui
+
 # Locations
 map gd cd ~/Documents
 map gl cd ~/learn

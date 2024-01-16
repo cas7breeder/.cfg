@@ -53,6 +53,8 @@ parse_git_branch() {
 }
 
 set -o vi
+# Disable software flow control (ctrl + s / ctrl + q) if shell is interactive
+[[ $- == *i* ]] && stty -ixon
 
 # Change the window title of X terminals
 case ${TERM} in
@@ -134,6 +136,7 @@ alias dkcpf='docker container prune -f'
 
 # Make vim nvim
 alias vim='/usr/bin/nvim'
+alias vimo='/usr/bin/nvim -O . .'
 alias vimtmp='vim $(mktemp)'
 
 xhost +local:root > /dev/null 2>&1

@@ -30,12 +30,14 @@ set -o vi
 # Enables tab-completion for commands after sudo
 complete -cf sudo
 
+# TODO review
 # Bash won't get SIGWINCH if another process is in the foreground.
 # Enable checkwinsize so that bash will check the terminal size when
 # it regains control.  #65623
 # http://cnswww.cns.cwru.edu/~chet/bash/FAQ (E11)
 shopt -s checkwinsize
 
+# TODO review
 # Enable history appending instead of overwriting when closing the session
 shopt -s histappend
 
@@ -45,9 +47,11 @@ shopt -s cmdhist
 # TODO remove: grants root permission to open GUI apps on X11 display; Not required with Wayland
 xhost +local:root > /dev/null 2>&1
 
+# TODO review
 # Source bash completion if the file is readable
 [ -r /usr/share/bash-completion/bash_completion ] && . /usr/share/bash-completion/bash_completion
 
+# TODO review
 # Disable software flow control (ctrl + s / ctrl + q) if shell is interactive
 [[ $- == *i* ]] && stty -ixon
 

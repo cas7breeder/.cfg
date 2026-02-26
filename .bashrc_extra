@@ -140,9 +140,8 @@ alias du="du -h"
 # Show sizes in MB
 alias free="free -m"
 
-# TODO move git dir under ~/work
-alias config="/usr/bin/git --git-dir=$HOME/.cfg --work-tree=$HOME"
-# alias sshconfig="/usr/bin/git --git-dir=$HOME/.ssh.git --work-tree=$HOME/.ssh"
+alias config="/usr/bin/git --git-dir=$HOME/work/.cfg --work-tree=$HOME"
+alias sshconfig="/usr/bin/git --git-dir=$HOME/work/.ssh --work-tree=$HOME/.ssh"
 
 alias wlc="wl-copy --type text/plain"
 alias wlp="wl-paste"

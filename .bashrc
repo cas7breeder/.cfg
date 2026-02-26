@@ -8,17 +8,19 @@ export VISUAL=${EDITOR}
 
 export HISTTIMEFORMAT="%F %H:%M "
 # In memory bash history size
-export HISTSIZE=5000
+export HISTSIZE=50000
 # History size in .bash_history file
-export HISTFILESIZE=500000
+export HISTFILESIZE=5000000
 export HISTCONTROL="ignorespace"
 
 # Ignore such as these
 export HISTIGNORE="ls:ls -@(?|??):ll:pwd:pwd -P:clear:history:history @(?|??|???)"
 export HISTIGNORE="${HISTIGNORE}:git st:git br:vim"
 
+# If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# Test/info function
 colors() {
 	local fgc bgc vals seq0
 

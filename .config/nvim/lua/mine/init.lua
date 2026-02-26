@@ -2,18 +2,9 @@ require("mine.remap")
 require("mine.set")
 require("mine.packer")
 
-vim.o.termguicolors = true
 vim.g.neon_style = "doom"
 vim.g.neon_transparent = true
 vim.cmd.colorscheme 'neon'
-vim.api.nvim_set_hl(0, "Whitespace", { fg = "#00ff00", bold = true })
-vim.api.nvim_set_hl(0, "SpecialKey", { fg = "#ff5555", bold = true })
-
-vim.opt.listchars = {
-  tab = "→ ",
-  trail = "·",
-  nbsp = "␣",
-}
 
 local group = vim.api.nvim_create_augroup("TrimWhitespace", { clear = true })
 

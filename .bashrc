@@ -101,16 +101,16 @@ if ${use_color} ; then
 		PS1="\[\033[00;38;5;34m\][\u@\h\[\033[00;38;5;253m\] \W\[\033[00;38;5;34m\]]\[\033[00;38;5;39m\]\$(parse_git_branch)\[\033[00;38;5;34m\]\$\[\033[00m\] "
 	fi
 
-	alias ls='ls --color=auto'
-	alias grep='grep --colour=auto'
-	alias egrep='egrep --colour=auto'
-	alias fgrep='fgrep --colour=auto'
+	alias ls="ls --color=auto"
+	alias grep="grep --colour=auto"
+	alias egrep="egrep --colour=auto"
+	alias fgrep="fgrep --colour=auto"
 else
 	if [[ ${EUID} == 0 ]] ; then
-		# show root@ when we don't have colors
-		PS1='\u@\h \W \$ '
+		# Show root@ when we don't have colors
+		PS1="\u@\h \W \$ "
 	else
-		PS1='\u@\h \w \$ '
+		PS1="\u@\h \w \$ "
 	fi
 fi
 
@@ -124,7 +124,7 @@ alias ll="ls -Alh"
 # Confirm before overwriting something
 alias cp="cp -i"
 # Exclude loop devices - cut snap device spam
-alias lsblknl='lsblk -e 7'
+alias lsblknl="lsblk -e 7"
 # Human-readable sizes, include filesystem type
 alias df="df -hT"
 # Exclude pseudo filesystems

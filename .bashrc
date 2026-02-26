@@ -2,9 +2,13 @@
 # ~/.bashrc
 #
 
-# Setting environment
-export EDITOR=/usr/bin/nvim
-export VISUAL=${EDITOR}
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+# --------------------------------------------------------------------
+# ENVIRONMENT
+export EDITOR="/usr/bin/nvim"
+export VISUAL=$EDITOR
 
 export HISTTIMEFORMAT="%F %H:%M "
 # In memory bash history size
@@ -12,19 +16,44 @@ export HISTSIZE=50000
 # History size in .bash_history file
 export HISTFILESIZE=5000000
 export HISTCONTROL="ignorespace"
-
 # Ignore such as these
 export HISTIGNORE="ls:ls -@(?|??):ll:pwd:pwd -P:clear:history:history @(?|??|???)"
 export HISTIGNORE="${HISTIGNORE}:git st:git br:vim"
 
-# If not running interactively, don't do anything
-[[ $- != *i* ]] && return
 
+# --------------------------------------------------------------------
+# SHELL OPTIONS AND OTHER MAGIC
+
+# Set vi mode
+set -o vi
+
+# Enables tab-completion for commands after sudo
+complete -cf sudo
+
+# Bash won't get SIGWINCH if another process is in the foreground.
+# Enable checkwinsize so that bash will check the terminal size when
+# it regains control.  #65623
+# http://cnswww.cns.cwru.edu/~chet/bash/FAQ (E11)
+shopt -s checkwinsize
+
+# Enable history appending instead of overwriting when closing the session
+shopt -s histappend
+
+# Bash attempts to save all lines of a multiple-line command in the same history entry
+shopt -s cmdhist
+
+# TODO remove: grants root permission to open GUI apps on X11 display; Not required with Wayland
+xhost +local:root > /dev/null 2>&1
+
+# Source bash completion if the file is readable
 [ -r /usr/share/bash-completion/bash_completion ] && . /usr/share/bash-completion/bash_completion
 
-set -o vi
 # Disable software flow control (ctrl + s / ctrl + q) if shell is interactive
 [[ $- == *i* ]] && stty -ixon
+
+
+# --------------------------------------------------------------------
+# TODO REVIEW IF STILL REQUIRED
 
 # Change the window title of X terminals
 case ${TERM} in
@@ -87,54 +116,47 @@ fi
 
 unset use_color safe_term match_lhs sh
 
-alias cp="cp -i"                                    # confirm before overwriting something
-alias df='df -hT'                                   # human-readable sizes, include filesystem type
-alias dfreal='df -x squashfs -x devtmpfs -x tmpfs'  # exclude pseudo filesystems
-alias dfnl='df -x squashfs'                         # exclude squashfs: used by snap
-alias du='du -h'                                    # human-readable sizes
-alias free='free -m'                                # show sizes in MB
-alias np='nano -w PKGBUILD'
-alias more=less
 
-alias config='/usr/bin/git --git-dir=$HOME/.cfg --work-tree=$HOME'
-alias sshconfig='/usr/bin/git --git-dir=$HOME/.ssh.git --work-tree=$HOME/.ssh'
-alias ll='ls -Alh'
-alias wlc='wl-copy --type text/plain'
-alias wlp='wl-paste'
+# --------------------------------------------------------------------
+# ALIASES
 
-alias lsblknl='lsblk -e 7' # exclude loop devices - cut snap device spam
+alias ll="ls -Alh"
+# Confirm before overwriting something
+alias cp="cp -i"
+# Exclude loop devices - cut snap device spam
+alias lsblknl='lsblk -e 7'
+# Human-readable sizes, include filesystem type
+alias df="df -hT"
+# Exclude pseudo filesystems
+alias dfreal="df -x squashfs -x devtmpfs -x tmpfs"
+# Exclude squashfs: used by snap
+alias dfnl="df -x squashfs"
+# Human-readable sizes
+alias du="du -h"
+# Show sizes in MB
+alias free="free -m"
 
-alias dk='docker'
-alias dcs='docker compose'
-alias dkcpf='docker container prune -f'
+# TODO move git dir under ~/work
+alias config="/usr/bin/git --git-dir=$HOME/.cfg --work-tree=$HOME"
+# alias sshconfig="/usr/bin/git --git-dir=$HOME/.ssh.git --work-tree=$HOME/.ssh"
+
+alias wlc="wl-copy --type text/plain"
+alias wlp="wl-paste"
+
+alias dk="docker"
+alias dcs="docker compose"
+alias dkcpf="docker container prune -f"
 
 # Make vim nvim
-alias vim='/usr/bin/nvim'
-alias vimo='/usr/bin/nvim -O . .'
-alias vimtmp='vim $(mktemp)'
+alias vim="/usr/bin/nvim"
+alias vimo="/usr/bin/nvim -O . ."
+alias vimtmp="nvim $(mktemp)"
 
-xhost +local:root > /dev/null 2>&1
 
-complete -cf sudo
+# --------------------------------------------------------------------
+# GLOBAL FUNCTIONS
 
-# Bash won't get SIGWINCH if another process is in the foreground.
-# Enable checkwinsize so that bash will check the terminal size when
-# it regains control.  #65623
-# http://cnswww.cns.cwru.edu/~chet/bash/FAQ (E11)
-shopt -s checkwinsize
-
-shopt -s expand_aliases
-
-# export QT_SELECT=4
-
-# Enable history appending instead of overwriting when closing the session  #139609
-shopt -s histappend
-
-# Bash attempts to save all lines of a multiple-line command in the same history entry
-shopt -s cmdhist
-
-# # ex - archive extractor
-# # usage: ex <file>
+# Archive extractor: usage: ex <file>
 ex ()
 {
   if [ -f $1 ] ; then
@@ -157,7 +179,7 @@ ex ()
   fi
 }
 
-# Test/info function
+# Color test/info function
 colors() {
 	local fgc bgc vals seq0
 

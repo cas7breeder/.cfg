@@ -1,0 +1,82 @@
+# Halloy config.
+#
+# For a complete list of available options,
+# please visit https://halloy.chat/configuration.html
+
+theme = "Kanagawa"
+scale_factor = 1.1
+
+# TODO check on wayland
+#[platform_specific]
+#linux.decorations = false
+
+[preview]
+enabled = false
+
+[font]
+family = "RobotoMono Nerd Font"
+size = 16
+
+[keyboard]
+move_up = "alt+k"
+move_down = "alt+j"
+move_left = "alt+h"
+move_right = "alt+l"
+toggle_nick_list = "alt+m"
+toggle_topic = "alt+t"
+toggle_fullscreen = "alt+f"
+
+# Defaults:
+#command_bar = "ctrl+k"
+#reload_configuration = "ctrl+r"
+#highlights = "ctrl+i"
+
+[actions.buffer]
+click_channel_name = "replace-pane"
+click_highlight = "replace-pane"
+click_username = "replace-pane"
+local = "replace-pane"
+message_channel = "replace-pane"
+message_user = "replace-pane"
+
+[actions.sidebar]
+buffer = "replace-pane"
+
+[buffer.server_messages.join]
+enabled = false
+[buffer.server_messages.change_host]
+enabled = false
+[buffer.server_messages.part]
+smart = 180
+[buffer.server_messages.quit]
+smart = 180
+
+[servers.liberachat]
+use_tls = true
+nickname = "thousand"
+server = "irc.libera.chat"
+channels = [
+# OS
+            "#archlinux", "#bash", "#linux", "#systemd",
+# Core
+            "#docker", "##email", "#networking", "#netfilter", "#nginx", "#proxmox", "#security",
+# DevOps/SRE tools
+            "#ansible", "#grafana", "#prometheus", "#terraform",
+# Cloud/CNCF
+            "#aws",
+# Other
+            "#neovim", "#tmux"
+]
+# python, debian, wireguard, osdev, netfilter, pfsense, qemu, haproxy, grub, letsencrypt, openssl
+
+[servers.liberachat.sasl.plain]
+username = ""
+password_file = "psw_libera"
+
+# OFTC
+#[servers.oftc]
+#use_tls = true
+#nickname = ""
+#server = "irc.oftc.net"
+#nick_password_file = "psw_oftc"
+##nick_identify_syntax = "password-nick"

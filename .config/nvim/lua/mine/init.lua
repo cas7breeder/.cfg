@@ -1,5 +1,6 @@
 require("mine.remap")
 require("mine.set")
+require("mine.packer")
 
 -- https://github.com/olivercederborg/poimandres.nvim
 --vim.cmd.colorscheme 'poimandres'

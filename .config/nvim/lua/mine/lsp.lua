@@ -12,12 +12,14 @@ require('mason-lspconfig').setup({
     ensure_installed = {
         'helm_ls',
         'lua_ls',
-        'terraformls'
-        --'ansible-lint',
-        --'bashls',
-        --'dockerls',
-        --'docker_compose_language_service',
-        --'nginx-language-server'
+        'terraformls',
+        'ansiblels',
+        -- 'ansible-lint',
+        'bashls',
+        'dockerls',
+        'docker_compose_language_service',
+        'nginx_language_server',
+        'pyright',
     },
     handlers = {
         lsp_zero.default_setup,

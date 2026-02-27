@@ -12,8 +12,7 @@ return require('packer').startup(function(use)
 
   -- Syntax highlighting, indentation, code folding
   use { 'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate',
-    commit = 'known_stable_commit'
+    run = ':TSUpdate'
   }
   -- Undo history tree - :UndotreeToggle
   use 'mbbill/undotree';

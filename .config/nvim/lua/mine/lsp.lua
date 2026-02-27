@@ -1,12 +1,12 @@
 local lsp_zero = require('lsp-zero')
 
+lsp_zero.extend_lspconfig()
+
 lsp_zero.on_attach(function(client, bufnr)
     -- see :help lsp-zero-keybindings
     -- to learn the available actions
     lsp_zero.default_keymaps({buffer = bufnr})
 end)
-
-require('mason').setup({})
 
 require('mason-lspconfig').setup({
     ensure_installed = {
@@ -18,13 +18,15 @@ require('mason-lspconfig').setup({
         'bashls',
         'dockerls',
         'docker_compose_language_service',
-        'nginx_language_server',
+        -- 'nginx_language_server',
         'pyright',
     },
     handlers = {
         lsp_zero.default_setup,
     },
 })
+
+lsp_zero.setup()
 
 -- lsp_zero.set_preferences({
 --     sign_icons = { }

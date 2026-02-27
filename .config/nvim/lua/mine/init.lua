@@ -1,6 +1,8 @@
+require('mason').setup({})
+require("mine.lsp")
+require("mine.packer")
 require("mine.remap")
 require("mine.set")
-require("mine.packer")
 
 vim.g.neon_style = "doom"
 vim.g.neon_transparent = true

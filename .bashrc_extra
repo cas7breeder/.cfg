@@ -157,6 +157,9 @@ alias vim="/usr/bin/nvim"
 alias vimo="/usr/bin/nvim -O . ."
 alias vimtmp="nvim $(mktemp)"
 
+alias gu="/usr/bin/gitui"
+alias cu="/usr/bin/gitui -d $HOME/.cfg -w $HOME"
+
 
 # --------------------------------------------------------------------
 # GLOBAL FUNCTIONS

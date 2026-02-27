@@ -6,68 +6,82 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   use {
-
-	  'nvim-telescope/telescope.nvim', tag = '0.1.4',
-	  -- or                            , branch = '0.1.x',
-	  requires = { {'nvim-lua/plenary.nvim'} }
+      'nvim-telescope/telescope.nvim',
+      requires = { {'nvim-lua/plenary.nvim'} }
   }
 
-  use ( 'nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
-  
-  ------------------------- COLOR SCHEMES -------------------------
-  use { 
-	  'olivercederborg/poimandres.nvim',
-	  config = function()
-		  require('poimandres').setup {
-			  dim_nc_background = false, -- dim 'non-current' window backgrounds
-			  disable_background = true, -- disable background
-			  disable_float_background = true -- disable background for floats
-		  }
-	  end
+  -- Syntax highlighting, indentation, code folding
+  use { 'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate',
+    commit = 'known_stable_commit'
   }
-
-  use 'AlexvZyl/nordic.nvim';
-
-  use 'rafamadriz/neon';
-
-  use {
-	  'marko-cerovac/material.nvim',
-	  config = function()
-		  require('material').setup{
-			  disable = {
-				  background = true
-			  }
-		  }
-	  end
-  }
-
-  use 'ThePrimeagen/harpoon';
+  -- Undo history tree - :UndotreeToggle
   use 'mbbill/undotree';
+  use 'ThePrimeagen/harpoon';
+  -- Git commands - :Git status/diff/blame
   use 'tpope/vim-fugitive';
 
   use {
-	  'VonHeikemen/lsp-zero.nvim',
-	  branch = 'v3.x',
-	  requires = {
-		  --- Uncomment these if you want to manage LSP servers from neovim
-		  {'williamboman/mason.nvim'},
-		  {'williamboman/mason-lspconfig.nvim'},
-
-		  -- LSP Support
-		  {'neovim/nvim-lspconfig'},
-		  -- Autocompletion
-		  {'hrsh7th/nvim-cmp'},
-		  {'hrsh7th/cmp-nvim-lsp'},
-		  {'L3MON4D3/LuaSnip'},
-	  }
+      'VonHeikemen/lsp-zero.nvim',
+      requires = {
+          --- Manage LSP servers from neovim
+          {'williamboman/mason.nvim'},
+          {'williamboman/mason-lspconfig.nvim'},
+          -- LSP Support
+          {'neovim/nvim-lspconfig'},
+          -- Autocompletion engine
+          {'hrsh7th/nvim-cmp'},
+          -- LSP to cmp adapter
+          {'hrsh7th/cmp-nvim-lsp'},
+          -- Snippet engine
+          {'L3MON4D3/LuaSnip'},
+      }
   }
 
---  use  {
---      'lukas-reineke/indent-blankline.nvim',
---	  config = function()
---		  require('ibl').setup()
---	  end
---  }
+  -- use {
+  --   'lukas-reineke/indent-blankline.nvim',
+  --   config = function()
+  --     require("ibl").setup({
+  --       -- vertical bar
+  --       indent = {
+  --           char = "▏",
+  --           tab_char = "▏"
+  --       },
+  --       -- highlight current indent scope
+  --       scope = {
+  --         enabled = true,
+  --         show_start = false,
+  --         show_end = false,
+  --       },
+  --     })
+  --   end
+  -- }
 
+  ------------------------- COLOR SCHEMES -------------------------
+  use 'rafamadriz/neon';
+
+  -- use {
+  --     'olivercederborg/poimandres.nvim',
+  --     config = function()
+  --         require('poimandres').setup {
+  --             dim_nc_background = false, -- dim 'non-current' window backgrounds
+  --             disable_background = true, -- disable background
+  --             disable_float_background = true -- disable background for floats
+  --         }
+  --     end
+  -- }
+
+  -- use 'AlexvZyl/nordic.nvim';
+
+  -- use {
+  --     'marko-cerovac/material.nvim',
+  --     config = function()
+  --         require('material').setup{
+  --             disable = {
+  --                 background = true
+  --             }
+  --         }
+  --     end
+  -- }
 
 end)

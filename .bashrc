@@ -97,7 +97,7 @@ alias vim="/usr/bin/nvim"
 alias vimo="/usr/bin/nvim -O . ."
 
 alias gu="/usr/bin/gitui"
-alias cu="/usr/bin/gitui -d $HOME/.cfg -w $HOME"
+alias cu="/usr/bin/gitui -d $HOME/work/.cfg -w $HOME"
 
 
 # --------------------------------------------------------------------

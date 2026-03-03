@@ -1,22 +1,22 @@
 [user]
-	name = cas7breeder
-	email = castbreeder@posteo.net
+    name = cas7breeder
+    email = castbreeder@posteo.net
 
 [core]
-	editor = vim
-	autocrlf = input
+    editor = vim
+    autocrlf = input
 
 [alias]
-	st = status
+    st = status
     df = diff
     dfi = diff --cached
-	co = checkout
-	cm = commit -m
-	cma = commit --amend
-	br = branch -vv
-	cb = checkout -b
-	lga = log --graph --oneline --all --decorate
-	lo = log --oneline
+    co = checkout
+    cm = commit -m
+    cma = commit --amend
+    br = branch -vv
+    cb = checkout -b
+    lga = log --graph --oneline --all --decorate
+    lo = log --oneline
     stu = stash --include-untracked
     stl = stash list
     stp = stash pop
@@ -25,10 +25,10 @@
 
 # Disabled for now as it tends to delete the email record between checkouts
 [filter "demail_git_config"]
-	clean = "sed '/^\\s*email\\s*=/'d"
+    clean = "sed '/^\\s*email\\s*=/'d"
 
 [pull]
-	ff = only
+    ff = only
 
 [color "status"]
     added = 76
@@ -58,4 +58,4 @@
     HEAD = 39 bold
 
 [init]
-	defaultBranch = master
+    defaultBranch = master

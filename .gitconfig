@@ -34,14 +34,14 @@
     added = 76
     changed = 124
     untracked = 124
-    branch = 39 bold
+    branch = yellow bold
     localBranch = 76
     remoteBranch = 124
     nobranch = 124 bold
     unmerged = 124 bold
 
 [color "branch"]
-    current = 39 bold
+    current = yellow bold
     local = 76 bold
     remote = 124
     upstream = 124 bold
@@ -55,7 +55,7 @@
     branch = 76 bold
     remoteBranch = 124 bold
     tag = 99 bold
-    HEAD = 39 bold
+    HEAD = yellow bold
 
 [init]
     defaultBranch = master

@@ -25,7 +25,14 @@ HISTIGNORE="ls:ls -*:ll:pwd:pwd -P:clear:history:git st:git br:vim:vimo"
 
 # Sync history before each prompt
 PROMPT_COMMAND='history -a; history -n'"${PROMPT_COMMAND:+; $PROMPT_COMMAND}"
-PS1='[\u@\h \W]\$ '
+
+# Colors
+ORANGE='\[\e[38;5;208m\]'
+BOLD_WHITE='\[\e[1;37m\]'
+YELLOW='\[\e[1;33m\]'
+RESET='\[\e[0m\]'
+
+PS1="${ORANGE}\u@\h${RESET} ${BOLD_WHITE}\W${RESET}${YELLOW}\$(__git_ps1 ' (%s)')${RESET} \\$ "
 
 
 # --------------------------------------------------------------------
@@ -50,6 +57,8 @@ shopt -s cmdhist
 
 # Source bash completion if the file is readable; bash-completion may define its own sudo completion
 [ -r /usr/share/bash-completion/bash_completion ] && . /usr/share/bash-completion/bash_completion
+[ -r /usr/share/git/completion/git-prompt.sh ] && . /usr/share/git/completion/git-prompt.sh
+
 # Enables tab-completion for commands after sudo
 complete -cf sudo
 
@@ -102,12 +111,6 @@ alias cu="/usr/bin/gitui -d $HOME/work/.cfg -w $HOME"
 
 # --------------------------------------------------------------------
 # GLOBAL FUNCTIONS
-
-vimtmp() { nvim "$(mktemp)"; }
-
-parse_git_branch() {
-    git symbolic-ref --short HEAD 2>/dev/null || git rev-parse --short HEAD 2>/dev/null
-}
 
 # Color test/info function
 colors() {

@@ -1,9 +1,12 @@
-#
+# shellcheck shell=bash
 # ~/.bashrc
 #
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
+# Disable software flow control (ctrl + s / ctrl + q) if shell is interactive
+[[ -t 0 ]] && stty -ixon
+
 
 # --------------------------------------------------------------------
 # ENVIRONMENT
@@ -11,122 +14,59 @@
 export EDITOR="/usr/bin/nvim"
 export VISUAL=$EDITOR
 
-export HISTTIMEFORMAT="%F %H:%M "
-
+# HIST* variables must be defined before PROMPT_COMMAND
+HISTTIMEFORMAT="%F %H:%M "
 # In memory
-export HISTSIZE=50000
+HISTSIZE=50000
 # In file
-export HISTFILESIZE=5000000
+HISTFILESIZE=5000000
+HISTCONTROL="ignorespace"
+HISTIGNORE="ls:ls -*:ll:pwd:pwd -P:clear:history:git st:git br:vim:vimo"
 
-export HISTCONTROL="ignorespace"
-export HISTIGNORE="ls:ls -@(?|??):ll:pwd:pwd -P:clear:history:history @(?|??|???)"
-export HISTIGNORE="${HISTIGNORE}:git st:git br:vim"
+# Sync history before each prompt
+PROMPT_COMMAND='history -a; history -n'"${PROMPT_COMMAND:+; $PROMPT_COMMAND}"
+PS1='[\u@\h \W]\$ '
 
 
 # --------------------------------------------------------------------
-# SHELL OPTIONS AND OTHER MAGIC
+# SHELL OPTIONS
 
 # Set vi mode
 set -o vi
 
-# Enables tab-completion for commands after sudo
-complete -cf sudo
-
-# TODO review
 # Bash won't get SIGWINCH if another process is in the foreground.
-# Enable checkwinsize so that bash will check the terminal size when
-# it regains control.  #65623
-# http://cnswww.cns.cwru.edu/~chet/bash/FAQ (E11)
+# Enable checkwinsize so that bash will ask the kernel for the terminal size when it regains control
 shopt -s checkwinsize
 
-# TODO review
 # Enable history appending instead of overwriting when closing the session
 shopt -s histappend
 
 # Bash attempts to save all lines of a multiple-line command in the same history entry
 shopt -s cmdhist
 
-# TODO remove: grants root permission to open GUI apps on X11 display; Not required with Wayland
-xhost +local:root > /dev/null 2>&1
 
-# TODO review
-# Source bash completion if the file is readable
+# --------------------------------------------------------------------
+# SOURCES
+
+# Source bash completion if the file is readable; bash-completion may define its own sudo completion
 [ -r /usr/share/bash-completion/bash_completion ] && . /usr/share/bash-completion/bash_completion
-
-# TODO review
-# Disable software flow control (ctrl + s / ctrl + q) if shell is interactive
-[[ $- == *i* ]] && stty -ixon
+# Enables tab-completion for commands after sudo
+complete -cf sudo
 
 
 # --------------------------------------------------------------------
-# TODO REVIEW IF STILL REQUIRED
+# OTHER MAGIC
 
-# Change the window title of X terminals
-case ${TERM} in
-    xterm*|rxvt*|Eterm*|aterm|kterm|gnome*|interix|konsole*)
-        PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/\~}\007"'
-        ;;
-    screen*)
-        PROMPT_COMMAND='echo -ne "\033_${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/\~}\033\\"'
-        ;;
-esac
-
-parse_git_branch() {
-     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \1 /'
-}
-
-use_color=true
-
-# Set colorful PS1 only on colorful terminals.
-# dircolors --print-database uses its own built-in database
-# instead of using /etc/DIR_COLORS.  Try to use the external file
-# first to take advantage of user additions.  Use internal bash
-# globbing instead of external grep binary.
-safe_term=${TERM//[^[:alnum:]]/?}   # sanitize TERM
-match_lhs=""
-[[ -f ~/.dir_colors   ]] && match_lhs="${match_lhs}$(<~/.dir_colors)"
-[[ -f /etc/DIR_COLORS ]] && match_lhs="${match_lhs}$(</etc/DIR_COLORS)"
-[[ -z ${match_lhs}    ]] \
-    && type -P dircolors >/dev/null \
-    && match_lhs=$(dircolors --print-database)
-[[ $'\n'${match_lhs} == *$'\n'"TERM "${safe_term}* ]] && use_color=true
-
-if ${use_color} ; then
-    # Enable colors for ls, etc.  Prefer ~/.dir_colors #64489
-    if type -P dircolors >/dev/null ; then
-        if [[ -f ~/.dir_colors ]] ; then
-            eval $(dircolors -b ~/.dir_colors)
-        elif [[ -f /etc/DIR_COLORS ]] ; then
-            eval $(dircolors -b /etc/DIR_COLORS)
-        fi
-    fi
-
-    if [[ ${EUID} == 0 ]] ; then
-        PS1='\[\033[01;31m\][\h\[\033[01;36m\] \W\[\033[01;31m\]]\$\[\033[00m\] '
-    else
-        PS1="\[\033[00;38;5;34m\][\u@\h\[\033[00;38;5;253m\] \W\[\033[00;38;5;34m\]]\[\033[00;38;5;39m\]\$(parse_git_branch)\[\033[00;38;5;34m\]\$\[\033[00m\] "
-    fi
-
-    alias ls="ls --color=auto"
-    alias grep="grep --colour=auto"
-    alias egrep="egrep --colour=auto"
-    alias fgrep="fgrep --colour=auto"
-else
-    if [[ ${EUID} == 0 ]] ; then
-        # Show root@ when we don't have colors
-        PS1="\u@\h \W \$ "
-    else
-        PS1="\u@\h \w \$ "
-    fi
-fi
-
-unset use_color safe_term match_lhs sh
+# Grant root permission to open GUI apps on X11 display
+#xhost +local:root > /dev/null 2>&1
 
 
 # --------------------------------------------------------------------
 # ALIASES
 
+alias ls='ls --color=auto'
 alias ll="ls -Alh"
+alias grep='grep --color=auto'
 # Confirm before overwriting something
 alias cp="cp -i"
 # Exclude loop devices - cut snap device spam
@@ -155,7 +95,6 @@ alias dkcpf="docker container prune -f"
 # Make vim nvim
 alias vim="/usr/bin/nvim"
 alias vimo="/usr/bin/nvim -O . ."
-alias vimtmp="nvim $(mktemp)"
 
 alias gu="/usr/bin/gitui"
 alias cu="/usr/bin/gitui -d $HOME/.cfg -w $HOME"
@@ -164,27 +103,10 @@ alias cu="/usr/bin/gitui -d $HOME/.cfg -w $HOME"
 # --------------------------------------------------------------------
 # GLOBAL FUNCTIONS
 
-# Archive extractor: usage: ex <file>
-ex ()
-{
-  if [ -f $1 ] ; then
-    case $1 in
-      *.tar.bz2)   tar xjf $1   ;;
-      *.tar.gz)    tar xzf $1   ;;
-      *.bz2)       bunzip2 $1   ;;
-      *.rar)       unrar x $1     ;;
-      *.gz)        gunzip $1    ;;
-      *.tar)       tar xf $1    ;;
-      *.tbz2)      tar xjf $1   ;;
-      *.tgz)       tar xzf $1   ;;
-      *.zip)       unzip $1     ;;
-      *.Z)         uncompress $1;;
-      *.7z)        7z x $1      ;;
-      *)           echo "'$1' cannot be extracted via ex()" ;;
-    esac
-  else
-    echo "'$1' is not a valid file"
-  fi
+vimtmp() { nvim "$(mktemp)"; }
+
+parse_git_branch() {
+    git symbolic-ref --short HEAD 2>/dev/null || git rev-parse --short HEAD 2>/dev/null
 }
 
 # Color test/info function

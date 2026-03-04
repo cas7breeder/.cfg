@@ -22,6 +22,7 @@
     stp = stash pop
     po = push origin HEAD
     pof = push -f origin HEAD
+    sw = switch
 
 # Disabled for now as it tends to delete the email record between checkouts
 [filter "demail_git_config"]

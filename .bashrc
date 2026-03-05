@@ -108,6 +108,38 @@ alias vimo="/usr/bin/nvim -O . ."
 alias gu="/usr/bin/gitui"
 alias cu="/usr/bin/gitui -d $HOME/work/.cfg -w $HOME"
 
+alias pm="pacman"
+# Sync repos and update packages (upgrade)
+alias pmu="sudo pacman -Syu"
+# Search for package
+alias pms="pacman -Ss"
+# Remove package
+alias pmr="sudo pacman -Rns"
+# Remove unused packages/orphans and their configs (cleanup)
+alias pmc="sudo pacman -Rns $(pacman -Qqtd)"
+# View package info
+alias pmi="pacman -Si"
+# List all installed packages
+alias pmq="pacman -Q"
+alias pmqq="pacman -Qq"
+# List files created by installing the package
+alias pml="pacman -Ql"
+# Show the package of file's origin
+alias pmo="pacman -Qo"
+# List only [e]xplicitly installed packages or dependencies/not found in sync db(s) (e.g. AUR)
+alias pmfl="pacman -Qm"
+# List installed packages only found in sync dbs
+alias pmnl="pacman -Qn"
+# List packages explicitly installed
+alias pmel="pacman -Qe"
+# Search the database for packages containing a specific file:
+alias pmf="pacman -F"
+
+# List dependency tree of a package
+alias pt="pactree"
+# List which packages depend on a package
+alias ptr="pactree -r"
+
 
 # --------------------------------------------------------------------
 # GLOBAL FUNCTIONS

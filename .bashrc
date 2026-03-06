@@ -111,8 +111,10 @@ alias cu="/usr/bin/gitui -d $HOME/work/.cfg -w $HOME"
 alias pm="pacman"
 # Sync repos and update packages (upgrade)
 alias pmu="sudo pacman -Syu"
+# Install a package
+alias pms="pacman -S"
 # Search for package
-alias pms="pacman -Ss"
+alias pmss="pacman -Ss"
 # Remove package
 alias pmr="sudo pacman -Rns"
 # Remove unused packages/orphans and their configs (cleanup)

@@ -1,44 +1,143 @@
-set drawbox
-set hidden true
+# ------------------------- SETTINGS ---------------------------
+
+set drawbox                     # draw boxes around panes with box drawing characters
+set hidden true                 # show hidden files
 set icons true
-set ignorecase true
-set info size:time
+set shell bash
+
+# These options are used to have safer shell commands
+  # option '-e' is used to exit on error and option '-u' is used to give error for unset variables
+set shellopts '-eu'
+
+set incsearch true              # text glob regex=https://pkg.go.dev/regexp/syntax
+set anchorfind false            # search from the top of directory
+#set searchmethod glob
+
+
+set info perm:size:user:time
+
+    # A list of information that is shown for directory items at the right side of the pane
+        # perm      -file permission
+        # user      -user name
+        # group     -group name
+        # size      -file size
+        # time      -time of last data modification
+        # atime     -time of last access
+        # btime     -time of file birth
+        # ctime     -time of last status (inode) change
+        # custom    -property defined via `addcustominfo` (empty by default)
+
+set ignorecase true             # ignore case in sorting and search patterns
 set relativenumber true
 set scrolloff 4
 
-# KEYMAPS
-#map x cut
-##map DD delete
-#map p paste
-#map y copy
-#map mf mkfile
-#map md mkdir
 
-# TODO make alacritty spawn bash first and only then lf, so that env vars set in bashrc can be used
-#map e $$EDITOR "$f"
-map e $/usr/bin/nvim -O "$f" "$f"
+# TODO: set previewer ~/c/dotfiles/.config/lf/lf-previewer.sh
+# ------------------------- KEYMAPS ----------------------------
 
-# Open GitUI
-map gi $/usr/bin/gitui
+# TODO: chmod+x; a+x or u+x?
+# TODO: follow links https://github.com/gokcehan/lf/wiki/Tips#follow-symbolic-links
+
+# Create a new directory (or multiple - "a b 'c d'")
+cmd mk-dir %mkdir "$@"
+map <a-n> push :mk-dir<space>
+
+map ` %{ printf "%q" "$PWD" | wl-copy --type text/plain; }      # copy current directory to clipboard
+map Y copy-file-paths
+
+map EE edit-config
+map RR reload-config
+
+# Touch a file
+map <a-f> push $touch<space>
+
+# TODO: Dedicated keys for file opener actions
+#map o &mimeopen $f
+#map O $mimeopen --ask $f
+
+map q                               # remap default quit
+map Q quit
+
+# TODO: bulk rename B
+# Renaming remaps
+map r :rename; cmd-delete-home      # unmap the default
+map C :rename; cmd-end; cmd-delete-home
+map i rename
+map I :rename; cmd-home
+map A :rename; cmd-end
+
+map d                               # remap default key
+map dd cut
+map DD trash                        # move to trash - "soft delete"
+map U fzf-restore                   # restore from trash
+map <a-D> delete                    # delete using rm
+map e $$EDITOR -O "$fx" "$fx"       # open file/dir in neovim
+map gu $/usr/bin/gitui              # open GitUI
+
+map J move-parent down
+map K move-parent up
 
 # Locations
 map gd cd ~/Documents
-map gl cd ~/learn
+map gD cd ~/Downloads
+map gc cd ~/.config
 map gw cd ~/work
 
+
+# ------------------------ FUNCTIONS ---------------------------
 cmd move-parent &{{
     dironly="setlocal '$(dirname "$PWD")' dironly"
     lf -remote "send $id :updir; $dironly true; $1; $dironly false; open"
 }}
 
-map J move-parent down
-map K move-parent up
+cmd trash %trash-put "$fx"      # requires trash-cli
 
+cmd fzf-restore ${{             # restore trashed files; requires fzf
+    ids="$(echo -ne '\n'              | \
+      trash-restore                   | \
+      awk '$1 ~ /^[0-9]+/ {print $0}' | \
+      fzf --multi                     | \
+      awk '{print $1}'                | \
+      sed -z 's/\n/,/g;s/,$/\n/')"
+    echo $ids | trash-restore
+    clear
+}}
 
-#TODO
-# dedicated keys for file opener actions
-#map o &mimeopen $f
-#map O $mimeopen --ask $f
-# file specified with $Env:f ?
-# remap C to rename instead of r
-# https://github.com/gokcehan/lf/blob/master/etc/lfrc.example
+cmd delete ${{
+    set -f
+    files="${fsx:-$fx}"
+
+    printf "%s\n" ${fs:-$f}
+    printf "\ndelete? [y/N]"
+    read -r ans
+    [ "$ans" = "y" ] && rm -rf -- $files
+}}
+
+# This command is called when current file is not a directory. You may want to
+  # use either file extensions and/or mime types here. Below uses an editor for
+  # text files and a file opener for the rest
+cmd open &{{
+    case $(file --mime-type -Lb $f) in
+        text/*) lf -remote "send $id \$$EDITOR \$fx";;
+        *) for f in $fx; do $OPENER $f > /dev/null 2> /dev/null & done;;
+    esac
+}}
+
+cmd reload-config ${{
+    lf -remote "send $id source ~/.config/lf/lfrc"
+}}
+
+cmd edit-config ${{
+    $EDITOR -O ~/.config/lf/lfrc ~/work/conspectus/linux/tools/lf
+}}
+
+cmd copy-file-paths ${{
+    # No special symbol quoting
+    #printf "%s\n" "${fs:-$f}" | wl-copy --type text/plain
+
+    # Wrap each line in single quotes
+    #printf "%s\n" "${fs:-$f}" | sed "s/.*/'&'/" | wl-copy --type text/plain
+
+    # Escape only special symbols
+    IFS=$'\n'; printf "%q\n" ${fs:-$f} | wl-copy --type text/plain
+}}

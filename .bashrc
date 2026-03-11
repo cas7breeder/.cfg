@@ -116,7 +116,7 @@ alias pms="pacman -Ss"
 # Remove package
 alias pmr="sudo pacman -Rns"
 # Remove unused packages/orphans and their configs (cleanup)
-alias pmc="sudo pacman -Rns \$(pacman -Qqtd)"
+alias pmcl="sudo pacman -Rns \$(pacman -Qqtd)"
 # Install a package
 alias pmi="sudo pacman -S"
 # List files created by installing the package

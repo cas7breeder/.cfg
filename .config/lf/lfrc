@@ -46,6 +46,9 @@ map ` %{ printf "%q" "$PWD" | wl-copy --type text/plain; }      # copy current d
 map Y copy-file-paths
 
 map EE edit-config
+map EG $/usr/bin/gitui
+map EC $/usr/bin/gitui -d $HOME/work/.cfg -w $HOME
+
 map RR reload-config
 
 # Touch a file
@@ -72,7 +75,6 @@ map DD trash                        # move to trash - "soft delete"
 map U fzf-restore                   # restore from trash
 map <a-D> delete                    # delete using rm
 map e $$EDITOR -O "$fx" "$fx"       # open file/dir in neovim
-map gu $/usr/bin/gitui              # open GitUI
 
 map J move-parent down
 map K move-parent up
@@ -82,6 +84,7 @@ map gd cd ~/Documents
 map gD cd ~/Downloads
 map gc cd ~/.config
 map gw cd ~/work
+map gl cd ~/work/conspectus
 
 
 # ------------------------ FUNCTIONS ---------------------------

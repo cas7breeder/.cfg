@@ -109,6 +109,8 @@ alias gu="/usr/bin/gitui"
 alias cu="/usr/bin/gitui -d $HOME/work/.cfg -w $HOME"
 
 alias pm="pacman"
+# Sync repos
+alias pmy="sudo pacman -Sy"
 # Sync repos and update packages (upgrade)
 alias pmu="sudo pacman -Syu"
 # Search for package

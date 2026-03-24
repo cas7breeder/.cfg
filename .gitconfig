@@ -3,7 +3,7 @@
     email = castbreeder@posteo.net
 
 [core]
-    editor = vim
+    editor = /usr/bin/nvim
     autocrlf = input
 
 [alias]

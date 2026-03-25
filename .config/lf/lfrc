@@ -31,8 +31,9 @@ set ignorecase true             # ignore case in sorting and search patterns
 set relativenumber true
 set scrolloff 4
 
-
 # TODO: set previewer ~/c/dotfiles/.config/lf/lf-previewer.sh
+
+
 # ------------------------- KEYMAPS ----------------------------
 
 # TODO: chmod+x; a+x or u+x?
@@ -80,8 +81,8 @@ map J move-parent down
 map K move-parent up
 
 # Locations
-map gd cd ~/Documents
-map gD cd ~/Downloads
+map gD cd ~/Documents
+map gd cd ~/Downloads
 map gc cd ~/.config
 map gw cd ~/work
 map gl cd ~/work/conspectus
@@ -93,7 +94,9 @@ cmd move-parent &{{
     lf -remote "send $id :updir; $dironly true; $1; $dironly false; open"
 }}
 
+
 cmd trash %trash-put "$fx"      # requires trash-cli
+
 
 cmd fzf-restore ${{             # restore trashed files; requires fzf
     ids="$(echo -ne '\n'              | \
@@ -106,15 +109,21 @@ cmd fzf-restore ${{             # restore trashed files; requires fzf
     clear
 }}
 
+
 cmd delete ${{
     set -f
     files="${fsx:-$fx}"
 
-    printf "%s\n" ${fs:-$f}
+    printf "\033[1;31m%s\033[0m\n%s\n" "$(date '+%Y-%m-%d %H:%M:%S')" "${fs:-$f}"
+
     printf "\ndelete? [y/N]"
     read -r ans
-    [ "$ans" = "y" ] && rm -rf -- $files
+
+    [ "$ans" = "y" ] && printf "%s\n" "$files" | xargs -r -d '\n' rm -rf --
+
+    printf "\n\n"
 }}
+
 
 # This command is called when current file is not a directory. You may want to
   # use either file extensions and/or mime types here. Below uses an editor for
@@ -133,13 +142,16 @@ cmd open &{{
     esac
 }}
 
+
 cmd reload-config ${{
     lf -remote "send $id source ~/.config/lf/lfrc"
 }}
 
+
 cmd edit-config ${{
     $EDITOR -O ~/.config/lf/lfrc ~/work/conspectus/linux/tools/lf
 }}
+
 
 cmd copy-file-paths ${{
     # No special symbol quoting

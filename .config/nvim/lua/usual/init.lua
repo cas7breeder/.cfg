@@ -1,8 +1,8 @@
 require('mason').setup({})
-require("mine.lsp")
-require("mine.packer")
-require("mine.remap")
-require("mine.set")
+require("usual.lsp")
+require("usual.packer")
+require("usual.remap")
+require("usual.set")
 
 vim.g.neon_style = "doom"
 vim.g.neon_transparent = true
@@ -23,7 +23,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 
 vim.api.nvim_create_user_command("ReloadConfig", function()
   for name,_ in pairs(package.loaded) do
-    if name:match("^mine") then
+    if name:match("^usual") then
       package.loaded[name] = nil
     end
   end

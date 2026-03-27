@@ -10,7 +10,7 @@ vim.cmd.colorscheme 'neon'
 
 vim.api.nvim_create_user_command("ReloadConfig", function()
   for name,_ in pairs(package.loaded) do
-    if name:match("^usual") then
+    if name:match("^usual") or name == "shared" then
       package.loaded[name] = nil
     end
   end

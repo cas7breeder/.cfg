@@ -55,6 +55,7 @@ shopt -s cmdhist
 # --------------------------------------------------------------------
 # SOURCES
 
+# Custom bash completion can be added here ~/.local/share/bash-completion/completions/<tool>
 # Source bash completion if the file is readable; bash-completion may define its own sudo completion
 [ -r /usr/share/bash-completion/bash_completion ] && . /usr/share/bash-completion/bash_completion
 [ -r /usr/share/git/completion/git-prompt.sh ] && . /usr/share/git/completion/git-prompt.sh

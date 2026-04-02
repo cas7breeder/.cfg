@@ -114,7 +114,7 @@ mods = "Shift"
 history = 10000
 
 [window]
-opacity = 0.9
+opacity = 0.88
 title = "Alacritty"
 
 [window.class]

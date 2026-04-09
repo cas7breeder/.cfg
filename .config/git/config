@@ -33,19 +33,19 @@
 
 [color "status"]
     added = 76
-    changed = 124
-    untracked = 124
-    branch = yellow bold
+    changed = 167
+    untracked = 167
+    branch = 227 bold
     localBranch = 76
-    remoteBranch = 124
-    nobranch = 124 bold
-    unmerged = 124 bold
+    remoteBranch = 167
+    nobranch = 167 bold
+    unmerged = 167 bold
 
 [color "branch"]
     current = yellow bold
     local = 76 bold
-    remote = 124
-    upstream = 124 bold
+    remote = 167
+    upstream = 167 bold
 
 [color "diff"]
     old = "#d80000"
@@ -54,7 +54,7 @@
 
 [color "decorate"]
     branch = 76 bold
-    remoteBranch = 124 bold
+    remoteBranch = 167 bold
     tag = 99 bold
     HEAD = yellow bold
 

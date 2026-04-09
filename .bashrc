@@ -29,10 +29,10 @@ PROMPT_COMMAND='history -a; history -n'"${PROMPT_COMMAND:+; $PROMPT_COMMAND}"
 # Colors
 ORANGE='\[\e[38;5;208m\]'
 BOLD_WHITE='\[\e[1;37m\]'
-YELLOW='\[\e[1;33m\]'
+YELLOW='\[\e[1;38;5;227m\]'
 RESET='\[\e[0m\]'
 
-PS1="${ORANGE}\u@\h${RESET} ${BOLD_WHITE}\W${RESET}${YELLOW}\$(__git_ps1 ' (%s)')${RESET} \\$ "
+PS1="${ORANGE}\u@\h${RESET} ${BOLD_WHITE}\W${RESET}${YELLOW}\$(__git_ps1 ' %s')${RESET} \\$ "
 
 
 # --------------------------------------------------------------------

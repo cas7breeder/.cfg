@@ -16,13 +16,11 @@
         "key": "ctrl+-",
         "command": "-workbench.action.zoomOut"
     },
-
     // Open workspace
     {
         "key": "ctrl+k ctrl+l",
         "command": "workbench.action.openWorkspace"
     },
-
     // Move tabs between groups
     {
         "key": "ctrl+alt+right",
@@ -40,7 +38,6 @@
         "key": "alt+left",
         "command": "workbench.action.moveEditorToLeftGroup"
     },
-
     // Resize panels
     {
         "key": "ctrl+shift+q",
@@ -57,7 +54,6 @@
         "command": "workbench.action.minimizeOtherEditors",
         "when": "editorFocus"
     },
-
     // Navigate between terminal panes
     {
         "key": "alt+left",
@@ -69,7 +65,6 @@
         "command": "workbench.action.terminal.focusNextPane",
         "when": "terminalFocus"
     },
-
     // Manual editor resize
     {
         "key": "alt+=",
@@ -79,7 +74,6 @@
         "key": "alt+-",
         "command": "workbench.action.decreaseViewSize"
     },
-
     // Change text case
     {
         "key": "ctrl+shift+l",
@@ -91,7 +85,6 @@
         "command": "editor.action.transformToLowercase",
         "when": "editorTextFocus"
     },
-
     // Split terminal
     {
         "key": "ctrl+\\",
@@ -107,5 +100,13 @@
         "key": "k",
         "command": "list.focusUp",
         "when": "listFocus && !inputFocus"
-    }
+    },
+    {
+        "key": "shift+alt+l",
+        "command": "workbench.action.nextEditor"
+    },
+    {
+        "key": "shift+alt+h",
+        "command": "workbench.action.previousEditor"
+    },
 ]

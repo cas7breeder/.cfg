@@ -1,5 +1,8 @@
 vim.g.mapleader = " "
 
+-- Write buffer
+vim.keymap.set("n", "<leader>s", "<cmd>w<CR>")
+
 -- Disable Ex mode
 vim.keymap.set("n", "Q", "<nop>")
 

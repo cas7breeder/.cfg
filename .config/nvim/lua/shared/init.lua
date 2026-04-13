@@ -9,6 +9,8 @@ local function trim()
 
   vim.cmd([[%s/\s\+$//e]])
   vim.cmd([[%s/\n\+\%$//e]])
+  -- convert NBSP to normal space
+  vim.cmd([[%s/\%u00A0/ /ge]])
 
   vim.fn.winrestview(view)
 end

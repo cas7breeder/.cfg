@@ -43,8 +43,9 @@ set scrolloff 4
 cmd mk-dir %mkdir "$@"
 map <a-n> push :mk-dir<space>
 
-map ` %{ printf "%q" "$PWD" | wl-copy --type text/plain; }      # copy current directory to clipboard
-map Y copy-file-paths
+map ` copy-file-paths
+map ~ %{ printf "%q" "$PWD" | wl-copy --type text/plain; }      # copy current directory to clipboard
+map Y copy-file-contents
 
 map EE edit-config
 map EG $/usr/bin/gitui
@@ -162,4 +163,9 @@ cmd copy-file-paths ${{
 
     # Escape only special symbols
     IFS=$'\n'; printf "%q\n" ${fs:-$f} | wl-copy --type text/plain
+}}
+
+cmd copy-file-contents ${{
+    # No special symbol quoting
+    IFS=$'\n'; cat ${fs:-$f} | wl-copy --type text/plain
 }}

@@ -74,17 +74,6 @@
         "key": "alt+-",
         "command": "workbench.action.decreaseViewSize"
     },
-    // Change text case
-    {
-        "key": "ctrl+shift+l",
-        "command": "editor.action.transformToUppercase",
-        "when": "editorTextFocus"
-    },
-    {
-        "key": "ctrl+shift+;",
-        "command": "editor.action.transformToLowercase",
-        "when": "editorTextFocus"
-    },
     // Split terminal
     {
         "key": "ctrl+\\",
@@ -103,10 +92,10 @@
     },
     {
         "key": "shift+alt+l",
-        "command": "workbench.action.nextEditor"
+        "command": "workbench.action.nextEditorInGroup"
     },
     {
         "key": "shift+alt+h",
-        "command": "workbench.action.previousEditor"
+        "command": "workbench.action.previousEditorInGroup"
     },
 ]

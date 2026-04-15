@@ -21,6 +21,7 @@
     "editor.minimap.enabled": false,
     "workbench.colorTheme": "One Dark Pro Darker",
     "editor.cursorBlinking": "solid",
+    "editor.cursorSmoothCaretAnimation": "on",
     "workbench.colorCustomizations": {
         "editorCursor.foreground": "#FFD700",
         "editorCursor.background": "#000000",

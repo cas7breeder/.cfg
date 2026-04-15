@@ -54,17 +54,6 @@
         "key": "ctrl+q",
         "when": "editorFocus"
     },
-    // Navigate between terminal panes
-    {
-        "command": "workbench.action.terminal.focusPreviousPane",
-        "key": "alt+left",
-        "when": "terminalFocus"
-    },
-    {
-        "command": "workbench.action.terminal.focusNextPane",
-        "key": "alt+right",
-        "when": "terminalFocus"
-    },
     // Manual editor resize
     {
         "command": "workbench.action.increaseViewSize",
@@ -117,6 +106,17 @@
         "command": "workbench.action.navigateDown",
         "key": "alt-j"
     },
+    // Navigate between terminal panes
+    {
+        "command": "workbench.action.terminal.focusPreviousPane",
+        "key": "alt+left",
+        "when": "terminalFocus"
+    },
+    {
+        "command": "workbench.action.terminal.focusNextPane",
+        "key": "alt+right",
+        "when": "terminalFocus"
+    },
     // Show all opened editors
     {
         "command": "workbench.action.showAllEditors",
@@ -167,6 +167,12 @@
         "command": "workbench.action.moveEditorToRightGroup",
         "key": "alt+shift+l",
         "when": "neovim.mode != 'input' && (editorTextFocus || inSettingsEditor || inKeybindings || inWelcome)"
+    },
+    // Toggle Zen mode
+    {
+        "key": "space z",
+        "command": "workbench.action.toggleZenMode",
+        "when": "!isAuxiliaryWindowFocusedContext"
     },
     // ------ File/editor actions
     // Open new blank file

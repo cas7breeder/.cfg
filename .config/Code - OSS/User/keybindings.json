@@ -161,18 +161,18 @@
     {
         "command": "workbench.action.moveEditorToLeftGroup",
         "key": "alt+shift+h",
-        "when": "neovim.mode != 'input' && (editorTextFocus || inSettingsEditor || inKeybindings || inWelcome)"
+        "when": "(editorTextFocus || inSettingsEditor || inKeybindings || inWelcome"
     },
     {
         "command": "workbench.action.moveEditorToRightGroup",
         "key": "alt+shift+l",
-        "when": "neovim.mode != 'input' && (editorTextFocus || inSettingsEditor || inKeybindings || inWelcome)"
+        "when": "editorTextFocus || inSettingsEditor || inKeybindings || inWelcome"
     },
     // Toggle Zen mode
     {
         "key": "space z",
         "command": "workbench.action.toggleZenMode",
-        "when": "!isAuxiliaryWindowFocusedContext"
+        "when": "neovim.mode != 'insert' && !isAuxiliaryWindowFocusedContext"
     },
     // ------ File/editor actions
     // Open new blank file
@@ -185,7 +185,7 @@
     {
         "command": "workbench.action.closeActiveEditor",
         "key": "alt+q",
-        "when": "neovim.mode != 'input' && (editorTextFocus || inSettingsEditor || inKeybindings || inWelcome)"
+        "when": "neovim.mode != 'insert' && (editorTextFocus || inSettingsEditor || inKeybindings || inWelcome)"
     },
     // Save file
     {

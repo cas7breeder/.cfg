@@ -1,3 +1,5 @@
+--  Write buffer vim.g.mapleader = " "
+
 -- File view mode
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)

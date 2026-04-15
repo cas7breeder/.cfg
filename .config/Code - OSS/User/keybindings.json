@@ -80,6 +80,32 @@
         "key": "k",
         "when": "listFocus && !inputFocus"
     },
+    // Quick suggestions' dropdown navigation
+    {
+        "key": "escape",
+        "command": "hideSuggestWidget",
+        "when": "suggestWidgetVisible"
+    },
+    {
+        "key": "ctrl+j",
+        "command": "selectNextSuggestion",
+        "when": "neovim.mode != 'visual' && editorTextFocus  && suggestWidgetVisible && suggestWidgetHasFocusedSuggestion"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "selectPrevSuggestion",
+        "when": "neovim.mode != 'visual' && editorTextFocus  && suggestWidgetVisible"
+    },
+    {
+        "key": "ctrl+d",
+        "command": "selectNextPageSuggestion",
+        "when": "neovim.mode != 'visual' && editorTextFocus  && suggestWidgetVisible"
+    },
+    {
+        "key": "ctrl+u",
+        "command": "selectPageSuggestion",
+        "when": "neovim.mode != 'visual' && editorTextFocus  && suggestWidgetVisible"
+    },
     // Navigate between open editors
     {
         "command": "workbench.action.nextEditorInGroup",
@@ -92,19 +118,19 @@
     // Move focus
     {
         "command": "workbench.action.navigateLeft",
-        "key": "alt-h"
+        "key": "alt+h"
     },
     {
         "command": "workbench.action.navigateRight",
-        "key": "alt-l"
+        "key": "alt+l"
     },
     {
         "command": "workbench.action.navigateUp",
-        "key": "alt-k"
+        "key": "alt+k"
     },
     {
         "command": "workbench.action.navigateDown",
-        "key": "alt-j"
+        "key": "alt+j"
     },
     // Navigate between terminal panes
     {
@@ -172,7 +198,7 @@
     {
         "key": "space z",
         "command": "workbench.action.toggleZenMode",
-        "when": "neovim.mode != 'insert' && !isAuxiliaryWindowFocusedContext"
+        "when": "neovim.mode != 'insert' && !isAuxiliaryWindowFocusedContext && !inputFocus"
     },
     // ------ File/editor actions
     // Open new blank file

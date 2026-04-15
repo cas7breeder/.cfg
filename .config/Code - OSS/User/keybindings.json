@@ -1,101 +1,289 @@
 // Place your key bindings in this file to override the defaults
 [
     {
-        "key": "ctrl+shift+w",
-        "command": "-workbench.action.closeWindow"
+        "command": "-workbench.action.closeWindow",
+        "key": "ctrl+shift+w"
     },
     {
-        "key": "ctrl+q",
-        "command": "-workbench.action.quit"
+        "command": "-workbench.action.quit",
+        "key": "ctrl+q"
     },
     {
-        "key": "ctrl+=",
-        "command": "-workbench.action.zoomIn"
+        "command": "-workbench.action.zoomIn",
+        "key": "ctrl+="
     },
     {
-        "key": "ctrl+-",
-        "command": "-workbench.action.zoomOut"
+        "command": "-workbench.action.zoomOut",
+        "key": "ctrl+-"
     },
     // Open workspace
     {
-        "key": "ctrl+k ctrl+l",
-        "command": "workbench.action.openWorkspace"
+        "command": "workbench.action.openWorkspace",
+        "key": "ctrl+k ctrl+l"
     },
     // Move tabs between groups
     {
-        "key": "ctrl+alt+right",
-        "command": "-workbench.action.moveEditorToNextGroup"
+        "command": "-workbench.action.moveEditorToNextGroup",
+        "key": "ctrl+alt+right"
     },
     {
-        "key": "ctrl+alt+left",
-        "command": "-workbench.action.moveEditorToPreviousGroup"
+        "command": "-workbench.action.moveEditorToPreviousGroup",
+        "key": "ctrl+alt+left"
     },
     {
-        "key": "alt+right",
-        "command": "workbench.action.moveEditorToRightGroup"
+        "command": "-workbench.action.moveEditorToRightGroup",
+        "key": "alt+right"
     },
     {
-        "key": "alt+left",
-        "command": "workbench.action.moveEditorToLeftGroup"
+        "command": "-workbench.action.moveEditorToLeftGroup",
+        "key": "alt+left"
     },
     // Resize panels
     {
-        "key": "ctrl+shift+q",
         "command": "workbench.action.evenEditorWidths",
+        "key": "ctrl+shift+q",
         "when": "editorFocus"
     },
     {
-        "key": "ctrl+q",
         "command": "workbench.action.toggleMaximizedPanel",
+        "key": "ctrl+q",
         "when": "terminalFocus"
     },
     {
-        "key": "ctrl+q",
         "command": "workbench.action.minimizeOtherEditors",
+        "key": "ctrl+q",
         "when": "editorFocus"
     },
     // Navigate between terminal panes
     {
-        "key": "alt+left",
         "command": "workbench.action.terminal.focusPreviousPane",
+        "key": "alt+left",
         "when": "terminalFocus"
     },
     {
-        "key": "alt+right",
         "command": "workbench.action.terminal.focusNextPane",
+        "key": "alt+right",
         "when": "terminalFocus"
     },
     // Manual editor resize
     {
-        "key": "alt+=",
-        "command": "workbench.action.increaseViewSize"
+        "command": "workbench.action.increaseViewSize",
+        "key": "alt+="
     },
     {
-        "key": "alt+-",
-        "command": "workbench.action.decreaseViewSize"
+        "command": "workbench.action.decreaseViewSize",
+        "key": "alt+-"
     },
     // Split terminal
     {
-        "key": "ctrl+\\",
         "command": "workbench.action.terminal.split",
+        "key": "ctrl+\\",
         "when": "terminalFocus"
     },
+    // ------ Navigation
     {
-        "key": "j",
         "command": "list.focusDown",
+        "key": "j",
         "when": "listFocus && !inputFocus"
     },
     {
-        "key": "k",
         "command": "list.focusUp",
+        "key": "k",
         "when": "listFocus && !inputFocus"
     },
+    // Navigate between open editors
     {
-        "key": "shift+alt+l",
-        "command": "workbench.action.nextEditorInGroup"
+        "command": "workbench.action.nextEditorInGroup",
+        "key": "ctrl+alt+l"
     },
     {
-        "key": "shift+alt+h",
-        "command": "workbench.action.previousEditorInGroup"
+        "command": "workbench.action.previousEditorInGroup",
+        "key": "ctrl+alt+h"
     },
+    // Move focus
+    {
+        "command": "workbench.action.navigateLeft",
+        "key": "alt-h"
+    },
+    {
+        "command": "workbench.action.navigateRight",
+        "key": "alt-l"
+    },
+    {
+        "command": "workbench.action.navigateUp",
+        "key": "alt-k"
+    },
+    {
+        "command": "workbench.action.navigateDown",
+        "key": "alt-j"
+    },
+    // Show all opened editors
+    {
+        "command": "workbench.action.showAllEditors",
+        "key": "space ,",
+        "when": "neovim.mode == 'normal' && (editorTextFocus || !inputFocus)"
+    },
+    // Go to file/ quick open
+    {
+        "key": "space space",
+        "command": "workbench.action.quickOpen",
+        "when": "neovim.mode == 'normal' && (editorTextFocus || !inputFocus)"
+    },
+    // Toggle files explorer
+    {
+        "args": {
+            "commands": [
+                "workbench.action.toggleSidebarVisibility",
+                "workbench.files.action.focusFilesExplorer"
+            ]
+        },
+        "command": "runCommands",
+        "key": "space e",
+        "when": "neovim.mode == 'normal' && (editorTextFocus || !inputFocus) && !sideBarFocus"
+    },
+    {
+        "args": {
+            "commands": [
+                "workbench.action.toggleSidebarVisibility",
+                "workbench.action.focusActiveEditorGroup"
+            ]
+        },
+        "command": "runCommands",
+        "key": "space e",
+        "when": "sideBarFocus && !inputFocus"
+    },
+    {
+        "command": "workbench.action.toggleSidebarVisibility",
+        "key": "space e",
+        "when": "neovim.mode == 'normal' && editorTextFocus && foldersViewVisible"
+    },
+    // Move tabs to the opposite group
+    {
+        "command": "workbench.action.moveEditorToLeftGroup",
+        "key": "alt+shift+h",
+        "when": "neovim.mode != 'input' && (editorTextFocus || inSettingsEditor || inKeybindings || inWelcome)"
+    },
+    {
+        "command": "workbench.action.moveEditorToRightGroup",
+        "key": "alt+shift+l",
+        "when": "neovim.mode != 'input' && (editorTextFocus || inSettingsEditor || inKeybindings || inWelcome)"
+    },
+    // ------ File/editor actions
+    // Open new blank file
+    {
+        "command": "workbench.action.files.newUntitledFile",
+        "key": "alt+n",
+        "when": "neovim.mode == 'normal' && editorTextFocus"
+    },
+    // Close file
+    {
+        "command": "workbench.action.closeActiveEditor",
+        "key": "alt+q",
+        "when": "neovim.mode != 'input' && (editorTextFocus || inSettingsEditor || inKeybindings || inWelcome)"
+    },
+    // Save file
+    {
+        "command": "workbench.action.files.save",
+        "key": "space s",
+        "when": "neovim.mode == 'normal' && editorTextFocus"
+    },
+    // Split editor vertically
+    {
+        "command": "workbench.action.splitEditorToRightGroup",
+        "key": "space v",
+        "when": "neovim.mode == 'normal' && editorTextFocus && !activeEditorGroupLast"
+    },
+    {
+        "command": "workbench.action.splitEditorToLeftGroup",
+        "key": "space v",
+        "when": "neovim.mode == 'normal' && editorTextFocus && activeEditorGroupLast"
+    },
+    // Split editor horizontally
+    {
+        "command": "workbench.action.splitEditorDown",
+        "key": "space h",
+        "when": "neovim.mode == 'normal' && editorTextFocus"
+    },
+    // ------ Coding shortcuts
+    // Show hover tooltip - object info
+    {
+        "command": "editor.action.showHover",
+        "key": "shift-k",
+        "when": "neovim.mode == 'normal' && editorTextFocus"
+    },
+    // Open quick fix dialogue - same as ctrl+.
+    {
+        "command": "editor.action.quickFix",
+        "key": "space a",
+        "when": "neovim.mode == 'normal' && editorTextFocus"
+    },
+    // Go to symbol
+    {
+        "command": "workbench.action.gotoSymbol",
+        "key": "space k",
+        "when": "neovim.mode == 'normal' && editorTextFocus"
+    },
+    // Reveal definition similar to 'g d' - but uses LSP
+    {
+        "command": "editor.action.revealDefinition",
+        "key": "space g d",
+        "when": "neovim.mode == 'normal' && editorTextFocus"
+    },
+    // Go to implementation
+    {
+        "command": "editor.action.goToImplementation",
+        "key": "space g i",
+        "when": "neovim.mode == 'normal' && editorTextFocus"
+    },
+    // Open references
+    {
+        "command": "editor.action.goToReferences",
+        "key": "space g r",
+        "when": "neovim.mode == 'normal' && editorTextFocus"
+    },
+    // Rename variable
+    {
+        "command": "editor.action.rename",
+        "key": "space r",
+        "when": "neovim.mode == 'normal' && editorTextFocus && editorHasRenameProvider"
+    },
+    // Find remap
+    {
+        "command": "actions.find",
+        "key": "space f",
+        "when": "neovim.mode == 'normal' && editorTextFocus"
+    },
+    // Replace word under cursor
+    {
+        "command": "runCommands",
+        "args": {
+            "commands": [
+                "editor.action.addSelectionToNextFindMatch",
+                "editor.action.startFindReplaceAction"
+            ]
+        },
+        "key": "space r",
+        "when": "neovim.mode != 'insert' && editorTextFocus && !editorHasRenameProvider"
+    },
+    // Join lines in visual mode
+    {
+        "command": "editor.action.joinLines",
+        "key": "space j",
+        "when": "neovim.mode == 'visual' && editorTextFocus"
+    },
+    // Find word under cursor and add to selection
+    {
+        "key": "ctrl-n",
+        "command": "editor.action.addSelectionToNextFindMatch",
+        "when": "(neovim.mode == 'normal' || neovim.mode == 'visual') && (editorTextFocus || !inputFocus)"
+    },
+    // Passthrough to nvim
+    {
+        // Send this input to Neovim.
+        "command": "vscode-neovim.send",
+        "args": "<Space>p",
+        // Invoke the binding with this key sequence.
+        "key": "space p",
+        "when": "editorTextFocus && neovim.mode != 'insert'"
+    }
 ]

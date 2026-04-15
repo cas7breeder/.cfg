@@ -31,6 +31,9 @@
         "editor.selectionBackground": "#52525287",
         "editor.selectionHighlightBackground": "#ffd33d44",
     },
+    // Auto-completion, intellisense, quickSuggestions
+    "editor.inlineSuggest.enabled": true,
+    "editor.tabCompletion": "onlySnippets",
     //"workbench.iconTheme": "quill-icons-minimal",
     // Controls whether opened editors show as preview. Preview editors are reused until they are kept (e.g. via double click or editing) and show up with an italic font style.
     //"workbench.editor.enablePreview": false

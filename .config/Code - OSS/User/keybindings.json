@@ -1,5 +1,6 @@
 // Place your key bindings in this file to override the defaults
 [
+    // ---------- UNMAP SECTION ----------
     {
         "command": "-workbench.action.closeWindow",
         "key": "ctrl+shift+w"
@@ -16,12 +17,6 @@
         "command": "-workbench.action.zoomOut",
         "key": "ctrl+-"
     },
-    // Open workspace
-    {
-        "command": "workbench.action.openWorkspace",
-        "key": "ctrl+k ctrl+l"
-    },
-    // Move tabs between groups
     {
         "command": "-workbench.action.moveEditorToNextGroup",
         "key": "ctrl+alt+right"
@@ -37,6 +32,16 @@
     {
         "command": "-workbench.action.moveEditorToLeftGroup",
         "key": "alt+left"
+    },
+    {
+        "key": "ctrl+,",
+        "command": "-workbench.action.openSettings",
+    },
+    // -----------------------------------
+    // Open workspace
+    {
+        "command": "workbench.action.openWorkspace",
+        "key": "ctrl+k ctrl+l"
     },
     // Resize panels
     {
@@ -94,17 +99,28 @@
     {
         "key": "ctrl+k",
         "command": "selectPrevSuggestion",
-        "when": "neovim.mode != 'visual' && editorTextFocus  && suggestWidgetVisible"
+        "when": "neovim.mode != 'visual' && editorTextFocus  && suggestWidgetVisible && suggestWidgetHasFocusedSuggestion"
     },
     {
         "key": "ctrl+d",
         "command": "selectNextPageSuggestion",
-        "when": "neovim.mode != 'visual' && editorTextFocus  && suggestWidgetVisible"
+        "when": "neovim.mode != 'visual' && editorTextFocus  && suggestWidgetVisible && suggestWidgetHasFocusedSuggestion"
     },
     {
         "key": "ctrl+u",
-        "command": "selectPageSuggestion",
-        "when": "neovim.mode != 'visual' && editorTextFocus  && suggestWidgetVisible"
+        "command": "selectPrevPageSuggestion",
+        "when": "neovim.mode != 'visual' && editorTextFocus  && suggestWidgetVisible && suggestWidgetHasFocusedSuggestion"
+    },
+    // Quick open dropdown navigation
+    {
+        "key": "ctrl+j",
+        "command": "workbench.action.quickOpenSelectNext",
+        "when": "inQuickOpen"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "workbench.action.quickOpenSelectPrevious",
+        "when": "inQuickOpen"
     },
     // Navigate between open editors
     {
@@ -183,7 +199,7 @@
         "key": "space e",
         "when": "neovim.mode == 'normal' && editorTextFocus && foldersViewVisible"
     },
-    // Move tabs to the opposite group
+    // Move tab to the opposite group
     {
         "command": "workbench.action.moveEditorToLeftGroup",
         "key": "alt+shift+h",

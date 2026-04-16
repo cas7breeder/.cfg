@@ -37,6 +37,10 @@
         "key": "ctrl+,",
         "command": "-workbench.action.openSettings",
     },
+    {
+        "key": "ctrl+s",
+        "command": "-workbench.action.files.save",
+    },
     // -----------------------------------
     // Open workspace
     {
@@ -86,11 +90,6 @@
         "when": "listFocus && !inputFocus"
     },
     // Quick suggestions' dropdown navigation
-    {
-        "key": "escape",
-        "command": "hideSuggestWidget",
-        "when": "suggestWidgetVisible"
-    },
     {
         "key": "ctrl+j",
         "command": "selectNextSuggestion",

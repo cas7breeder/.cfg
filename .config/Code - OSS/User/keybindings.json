@@ -137,7 +137,8 @@
     },
     {
         "command": "workbench.action.navigateRight",
-        "key": "alt+l"
+        "key": "alt+l",
+        "when": "!replaceActive"
     },
     {
         "command": "workbench.action.navigateUp",
@@ -294,23 +295,30 @@
         "key": "space r",
         "when": "neovim.mode == 'normal' && editorTextFocus && editorHasRenameProvider"
     },
-    // Find remap
-    {
-        "command": "actions.find",
-        "key": "space f",
-        "when": "neovim.mode == 'normal' && editorTextFocus"
-    },
     // Replace word under cursor
     {
         "command": "runCommands",
         "args": {
             "commands": [
-                "editor.action.addSelectionToNextFindMatch",
+                {
+                    "command": "toggleFindInSelection",
+                    "when": "editorHasSelection"
+                },
+                {
+                    "command": "editor.action.addSelectionToNextFindMatch",
+                    "when": "!editorHasSelection"
+                },
                 "editor.action.startFindReplaceAction"
             ]
         },
         "key": "space r",
         "when": "neovim.mode != 'insert' && editorTextFocus && !editorHasRenameProvider"
+    },
+    // Find remap
+    {
+        "command": "actions.find",
+        "key": "space f",
+        "when": "neovim.mode == 'normal' && editorTextFocus"
     },
     // Join lines in visual mode
     {
@@ -322,7 +330,7 @@
     {
         "key": "ctrl-n",
         "command": "editor.action.addSelectionToNextFindMatch",
-        "when": "(neovim.mode == 'normal' || neovim.mode == 'visual') && (editorTextFocus || !inputFocus)"
+        "when": "neovim.mode != 'insert' && (editorTextFocus || !inputFocus)"
     },
     // Passthrough to nvim
     {

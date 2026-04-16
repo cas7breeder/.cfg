@@ -12,7 +12,7 @@ vim.keymap.set("n", "<C-b>", "<C-b>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
--- Delete highlighted text into the void register and then paste
+-- Delete highlighted text into the void register and then paste (don't overwrite clipboard)
 vim.keymap.set("x", "<Space>p", [["_dP]])
 
 -- Move selected lines up/down with J/K

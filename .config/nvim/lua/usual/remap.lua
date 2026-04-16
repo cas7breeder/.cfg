@@ -2,9 +2,7 @@ vim.g.mapleader = " "
 
 vim.keymap.set("n", "<M-q>", "<cmd>q<CR>")
 vim.keymap.set("n", "<leader>s", "<cmd>w<CR>")
-vim.keymap.set("n", "<leader>v", "<cmd>vsp<CR>")
-vim.keymap.set("n", "<leader>h", "<cmd>sp<CR>")
-vim.keymap.set("n", "<leader>n", "<cmd>enew<CR>")
+vim.keymap.set("n", "<M-n>", "<cmd>enew<CR>")
 vim.keymap.set("n", "<leader>c", "<C-w>x")
 
 vim.keymap.set("v", "<leader>j", "<cmd>'<,'>join<CR>")
@@ -30,6 +28,10 @@ vim.keymap.set("n", "<A-h>", "<C-w>h")
 vim.keymap.set("n", "<A-j>", "<C-w>j")
 vim.keymap.set("n", "<A-k>", "<C-w>k")
 vim.keymap.set("n", "<A-l>", "<C-w>l")
+
+-- Split window like in vscode
+vim.keymap.set("n", "<leader>v", "<cmd>vsp<CR>")
+vim.keymap.set("n", "<leader>h", "<cmd>sp<CR>")
 
 -- For tmux
 --vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")

@@ -23,13 +23,25 @@
     "editor.cursorBlinking": "solid",
     "editor.cursorSmoothCaretAnimation": "off",
     "workbench.colorCustomizations": {
+        // Cursor
         "editorCursor.foreground": "#FFD700",
         "editorCursor.background": "#000000",
+        // Visual selection background
+        "editor.selectionBackground": "#2a4f86aa",
+        // When finding and has matching text objects - this is their color
+        "editor.selectionHighlightBackground": "#00000000",
+        "editor.selectionHighlightBorder": "#00000000",
+        // Word occurence highlight
+        "editor.wordHighlightBackground": "#00000000",
+        "editor.wordHighlightBorder": "#656565",
+        // Find coloring
+        "editor.findMatchBackground": "#00000000",
+        "editor.findMatchHighlightBackground": "#00000000",
+        "editor.findMatchBorder": "#FFD700",
+        "editor.findMatchHighlightBorder": "#FFFFFFCC",
+        // Other
         "editorWhitespace.foreground": "#6dcc6d",
-        "editorLineNumber.foreground": "#3b7f68",
-        "editor.selectionForeground": "#FFFFFF",
-        "editor.selectionBackground": "#52525287",
-        "editor.selectionHighlightBackground": "#ffd33d44",
+        "editorLineNumber.foreground": "#3b7f68"
     },
     // Auto-completion, intellisense, quickSuggestions
     "editor.inlineSuggest.enabled": true,

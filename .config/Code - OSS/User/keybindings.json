@@ -135,12 +135,12 @@
     // Navigate between terminal panes
     {
         "command": "workbench.action.terminal.focusPreviousPane",
-        "key": "alt+left",
+        "key": "alt+h",
         "when": "terminalFocus"
     },
     {
         "command": "workbench.action.terminal.focusNextPane",
-        "key": "alt+right",
+        "key": "alt+l",
         "when": "terminalFocus"
     },
     // Show all opened editors

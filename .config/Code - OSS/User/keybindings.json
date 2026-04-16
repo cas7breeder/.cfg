@@ -300,13 +300,18 @@
         "command": "runCommands",
         "args": {
             "commands": [
+                "actions.findWithSelection",
+                {
+                    "command": "editor.actions.findWithArgs",
+                    "args": {
+                        "isRegex": false,
+                        "matchWholeWord": true,
+                        "isCaseSensitive": true,
+                    }
+                },
                 {
                     "command": "toggleFindInSelection",
                     "when": "editorHasSelection"
-                },
-                {
-                    "command": "editor.action.addSelectionToNextFindMatch",
-                    "when": "!editorHasSelection"
                 },
                 "editor.action.startFindReplaceAction"
             ]
@@ -316,7 +321,21 @@
     },
     // Find remap
     {
-        "command": "actions.find",
+        "command": "runCommands",
+        "args": {
+            "commands": [
+                "actions.findWithSelection",
+                {
+                    "command": "editor.actions.findWithArgs",
+                    "args": {
+                        "findInSelection": false,
+                        "isCaseSensitive": false,
+                        "isRegex": false,
+                        "matchWholeWord": false
+                    },
+                }
+            ]
+        },
         "key": "space f",
         "when": "neovim.mode == 'normal' && editorTextFocus"
     },

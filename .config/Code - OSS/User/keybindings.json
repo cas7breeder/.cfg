@@ -412,5 +412,11 @@
         // Invoke the binding with this key sequence.
         "key": "space p",
         "when": "editorTextFocus && neovim.mode != 'insert' && !filesExplorerFocus"
+    },
+    // Zoomiz extension
+    {
+        "key": "space l",
+        "command": "zoomiz.jump",
+        "when": "nevim.mode != 'insert' && editorTextFocus && !filesExplorerFocus"
     }
 ]

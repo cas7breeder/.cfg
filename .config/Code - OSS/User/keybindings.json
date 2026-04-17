@@ -183,41 +183,24 @@
     {
         "command": "workbench.action.showAllEditors",
         "key": "space ,",
-        "when": "neovim.mode == 'normal' && (editorTextFocus || !inputFocus)"
+        "when": "neovim.mode == 'normal' && (editorTextFocus || !inputFocus) && !filesExplorerFocus"
     },
     // Go to file/ quick open
     {
         "key": "space space",
         "command": "workbench.action.quickOpen",
-        "when": "neovim.mode == 'normal' && (editorTextFocus || !inputFocus)"
+        "when": "neovim.mode == 'normal' && (editorTextFocus || !inputFocus) && !filesExplorerFocus"
     },
-    // Toggle files explorer
+    // Open/focus files explorer
     {
-        "args": {
-            "commands": [
-                "workbench.action.toggleSidebarVisibility",
-                "workbench.files.action.focusFilesExplorer"
-            ]
-        },
-        "command": "runCommands",
+        "command": "workbench.files.action.focusFilesExplorer",
         "key": "space e",
-        "when": "neovim.mode == 'normal' && (editorTextFocus || !inputFocus) && !sideBarFocus"
+        "when": "neovim.mode == 'normal' && (editorTextFocus || !inputFocus) && !filesExplorerFocus && !sideBarFocus"
     },
     {
-        "args": {
-            "commands": [
-                "workbench.action.toggleSidebarVisibility",
-                "workbench.action.focusActiveEditorGroup"
-            ]
-        },
-        "command": "runCommands",
-        "key": "space e",
-        "when": "sideBarFocus && !inputFocus"
-    },
-    {
-        "command": "workbench.action.toggleSidebarVisibility",
-        "key": "space e",
-        "when": "neovim.mode == 'normal' && editorTextFocus && foldersViewVisible"
+        "key": "escape",
+        "command": "workbench.action.closeSidebar",
+        "when": "filesExplorerFocus && !inputFocus"
     },
     // Move tab to the opposite group
     {
@@ -234,7 +217,7 @@
     {
         "key": "space z",
         "command": "workbench.action.toggleZenMode",
-        "when": "neovim.mode != 'insert' && editorTextFocus"
+        "when": "neovim.mode != 'insert' && editorTextFocus && !filesExplorerFocus"
     },
     // ------ File/editor actions
     // Open new blank file
@@ -253,29 +236,49 @@
     {
         "command": "workbench.action.files.save",
         "key": "space s",
-        "when": "neovim.mode == 'normal' && editorTextFocus"
+        "when": "neovim.mode == 'normal' && editorTextFocus && !filesExplorerFocus"
     },
     // Split editor vertically
     {
         "command": "workbench.action.splitEditorToRightGroup",
         "key": "space v",
-        "when": "neovim.mode == 'normal' && editorTextFocus && !activeEditorGroupLast"
+        "when": "neovim.mode == 'normal' && editorTextFocus && !activeEditorGroupLast && !filesExplorerFocus"
     },
     {
         "command": "workbench.action.splitEditorToLeftGroup",
         "key": "space v",
-        "when": "neovim.mode == 'normal' && editorTextFocus && activeEditorGroupLast"
+        "when": "neovim.mode == 'normal' && editorTextFocus && activeEditorGroupLast && !filesExplorerFocus"
     },
     // Split editor horizontally
     {
         "command": "workbench.action.splitEditorDown",
         "key": "space h",
-        "when": "neovim.mode == 'normal' && editorTextFocus"
+        "when": "neovim.mode == 'normal' && editorTextFocus && !filesExplorerFocus"
     },
     {
         "command": "workbench.action.closeOtherEditors",
         "key": "space t",
-        "when": "neovim.mode != 'insert' && editorTextFocus"
+        "when": "neovim.mode != 'insert' && editorTextFocus && !filesExplorerFocus"
+    },
+    {
+        "key": "shift+h",
+        "command": "list.focusFirst",
+        "when": "filesExplorerFocus"
+    },
+    {
+        "key": "shift+l",
+        "command": "list.focusLast",
+        "when": "filesExplorerFocus"
+    },
+    {
+        "key": "space",
+        "command": "list.toggleSelection",
+        "when": "filesExplorerFocus"
+    },
+    {
+        "key": "escape",
+        "command": "list.closeFindWidget",
+        "when": "filesExplorerFocus && listFindWidgetVisible"
     },
     // ------ Coding shortcuts
     // Show hover tooltip - object info
@@ -288,37 +291,37 @@
     {
         "command": "editor.action.quickFix",
         "key": "space a",
-        "when": "neovim.mode == 'normal' && editorTextFocus"
+        "when": "neovim.mode == 'normal' && editorTextFocus && !filesExplorerFocus"
     },
     // Go to symbol
     {
         "command": "workbench.action.gotoSymbol",
         "key": "space k",
-        "when": "neovim.mode == 'normal' && editorTextFocus"
+        "when": "neovim.mode == 'normal' && editorTextFocus && !filesExplorerFocus"
     },
     // Reveal definition similar to 'g d' - but uses LSP
     {
         "command": "editor.action.revealDefinition",
         "key": "space g d",
-        "when": "neovim.mode == 'normal' && editorTextFocus"
+        "when": "neovim.mode == 'normal' && editorTextFocus && !filesExplorerFocus"
     },
     // Go to implementation
     {
         "command": "editor.action.goToImplementation",
         "key": "space g i",
-        "when": "neovim.mode == 'normal' && editorTextFocus"
+        "when": "neovim.mode == 'normal' && editorTextFocus && !filesExplorerFocus"
     },
     // Open references
     {
         "command": "editor.action.goToReferences",
         "key": "space g r",
-        "when": "neovim.mode == 'normal' && editorTextFocus"
+        "when": "neovim.mode == 'normal' && editorTextFocus && !filesExplorerFocus"
     },
     // Rename variable
     {
         "command": "editor.action.rename",
         "key": "space r",
-        "when": "neovim.mode == 'normal' && editorTextFocus && editorHasRenameProvider"
+        "when": "neovim.mode == 'normal' && editorTextFocus && !filesExplorerFocus && editorHasRenameProvider"
     },
     // Replace word under cursor
     {
@@ -342,7 +345,7 @@
             ]
         },
         "key": "space r",
-        "when": "neovim.mode != 'insert' && editorTextFocus && !editorHasRenameProvider"
+        "when": "neovim.mode != 'insert' && editorTextFocus && !editorHasRenameProvider && !filesExplorerFocus"
     },
     // Find remap
     {
@@ -354,7 +357,7 @@
             "matchWholeWord": false
         },
         "key": "space f",
-        "when": "neovim.mode == 'normal' && editorTextFocus"
+        "when": "neovim.mode == 'normal' && editorTextFocus && !filesExplorerFocus"
     },
     {
         "command": "runCommands",
@@ -373,13 +376,13 @@
             ]
         },
         "key": "space n",
-        "when": "neovim.mode == 'normal' && editorTextFocus"
+        "when": "neovim.mode == 'normal' && editorTextFocus && !filesExplorerFocus"
     },
     // Join lines in visual mode
     {
         "command": "editor.action.joinLines",
         "key": "space j",
-        "when": "neovim.mode == 'visual' && editorTextFocus"
+        "when": "neovim.mode == 'visual' && editorTextFocus && !filesExplorerFocus"
     },
     // Find word under cursor and add to selection
     {
@@ -390,7 +393,7 @@
     {
         "key": "space `",
         "command": "copyRelativeFilePath",
-        "when": "neovim.mode != 'insert' && editorTextFocus"
+        "when": "neovim.mode != 'insert' && editorTextFocus && !filesExplorerFocus"
     },
     {
         "key": "`",
@@ -404,6 +407,6 @@
         "args": "<Space>p",
         // Invoke the binding with this key sequence.
         "key": "space p",
-        "when": "editorTextFocus && neovim.mode != 'insert'"
+        "when": "editorTextFocus && neovim.mode != 'insert' && !filesExplorerFocus"
     }
 ]

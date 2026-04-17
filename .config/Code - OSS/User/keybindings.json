@@ -230,7 +230,7 @@
     {
         "key": "space z",
         "command": "workbench.action.toggleZenMode",
-        "when": "neovim.mode != 'insert' && !isAuxiliaryWindowFocusedContext && !inputFocus"
+        "when": "neovim.mode != 'insert' && editorTextFocus"
     },
     // ------ File/editor actions
     // Open new blank file

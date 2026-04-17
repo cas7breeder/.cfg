@@ -42,7 +42,9 @@
         "editor.findMatchHighlightBorder": "#FFFFFFCC",
         // Other
         "editorWhitespace.foreground": "#6dcc6d",
-        "editorLineNumber.foreground": "#3b7f68"
+        "editorLineNumber.foreground": "#3b7f68",
+        "list.activeSelectionBackground": "#2a4f86aa",
+        "list.inactiveSelectionBackground": "#2a4f86aa"
     },
     // Auto-completion, intellisense, quickSuggestions
     "editor.inlineSuggest.enabled": true,

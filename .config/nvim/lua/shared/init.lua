@@ -1,5 +1,8 @@
+vim.cmd [[packadd packer.nvim]]
+
 require("shared.remap")
 require("shared.set")
+require("shared.packer")
 
 local group = vim.api.nvim_create_augroup("TrimWhitespace", { clear = true })
 

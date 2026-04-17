@@ -23,6 +23,7 @@
     "editor.cursorBlinking": "solid",
     "editor.cursorSmoothCaretAnimation": "off",
     "workbench.colorCustomizations": {
+        "focusBorder": "#00ff88BB",
         // Cursor
         "editorCursor.foreground": "#FFD700",
         "editorCursor.background": "#000000",

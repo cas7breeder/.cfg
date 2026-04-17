@@ -33,6 +33,14 @@ vim.keymap.set("n", "<A-l>", "<C-w>l")
 vim.keymap.set("n", "<leader>v", "<cmd>vsp<CR>")
 vim.keymap.set("n", "<leader>h", "<cmd>sp<CR>")
 
+-- Keep the cursor in the middle when jumping half page up/down
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+-- Keep the cursor in the middle when jumping full page up/down
+vim.keymap.set("n", "<C-f>", "<C-f>zz")
+vim.keymap.set("n", "<C-b>", "<C-b>zz")
+
+
 -- For tmux
 --vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 

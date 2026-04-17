@@ -41,6 +41,10 @@
         "key": "ctrl+s",
         "command": "-workbench.action.files.save",
     },
+    {
+        "key": "ctrl+f",
+        "command": "-actions.find",
+    },
     // -----------------------------------
     // Open workspace
     {
@@ -251,6 +255,11 @@
         "command": "workbench.action.splitEditorDown",
         "key": "space h",
         "when": "neovim.mode == 'normal' && editorTextFocus"
+    },
+    {
+        "command": "workbench.action.closeOtherEditors",
+        "key": "space t",
+        "when": "neovim.mode != 'insert' && editorTextFocus"
     },
     // ------ Coding shortcuts
     // Show hover tooltip - object info

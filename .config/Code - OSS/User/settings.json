@@ -33,7 +33,7 @@
         "editor.selectionHighlightBorder": "#00000000",
         // Word occurence highlight
         "editor.wordHighlightBackground": "#00000000",
-        "editor.wordHighlightBorder": "#656565",
+        "editor.wordHighlightBorder": "#a6a6a6dd",
         // Find coloring
         "editor.findMatchBackground": "#00000000",
         "editor.findMatchHighlightBackground": "#00000000",

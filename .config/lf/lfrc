@@ -36,7 +36,6 @@ set scrolloff 4
 
 # ------------------------- KEYMAPS ----------------------------
 
-# TODO: chmod+x; a+x or u+x?
 # TODO: follow links https://github.com/gokcehan/lf/wiki/Tips#follow-symbolic-links
 
 # Create a new directory (or multiple - "a b 'c d'")
@@ -77,6 +76,7 @@ map DD trash                        # move to trash - "soft delete"
 map U fzf-restore                   # restore from trash
 map <a-D> delete                    # delete using rm
 map e $$EDITOR -O "$fx" "$fx"       # open file/dir in neovim
+map x chmod_toggle
 
 map J move-parent down
 map K move-parent up
@@ -96,7 +96,12 @@ cmd move-parent &{{
 }}
 
 
-cmd trash %trash-put "$fx"      # requires trash-cli
+cmd trash ${{                   # requires trash-cli
+  trash-put "$fx"
+  status=$?
+  lf -remote "send reload"
+  exit $status
+}}
 
 
 cmd fzf-restore ${{             # restore trashed files; requires fzf
@@ -108,6 +113,7 @@ cmd fzf-restore ${{             # restore trashed files; requires fzf
       sed -z 's/\n/,/g;s/,$/\n/')"
     echo $ids | trash-restore
     clear
+    lf -remote "send reload"
 }}
 
 
@@ -123,6 +129,7 @@ cmd delete ${{
     [ "$ans" = "y" ] && printf "%s\n" "$files" | xargs -r -d '\n' rm -rf --
 
     printf "\n\n"
+    lf -remote "send reload"
 }}
 
 
@@ -150,7 +157,7 @@ cmd reload-config ${{
 
 
 cmd edit-config ${{
-    $EDITOR -O ~/.config/lf/lfrc ~/work/conspectus/linux/tools/lf
+    $EDITOR -O ~/.config/lf/lfrc ~/.config/lf/lfrc ~/work/conspectus/linux/tools/lf
 }}
 
 
@@ -168,4 +175,16 @@ cmd copy-file-paths ${{
 cmd copy-file-contents ${{
     # No special symbol quoting
     IFS=$'\n'; cat ${fs:-$f} | wl-copy --type text/plain
+}}
+
+cmd chmod_toggle ${{
+    IFS=$'\n';
+    for file in ${fs:-$f}; do
+        if [ -x "$file" ]; then
+            chmod -x -- "$file"
+        else
+            chmod +x -- "$file"
+        fi
+    done
+    lf -remote "send reload"
 }}

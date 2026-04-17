@@ -2,6 +2,10 @@
 [
     // ---------- UNMAP SECTION ----------
     {
+        "key": "ctrl+w",
+        "command": "-workbench.action.closeActiveEditor",
+    },
+    {
         "command": "-workbench.action.closeWindow",
         "key": "ctrl+shift+w"
     },
@@ -342,6 +346,17 @@
     },
     // Find remap
     {
+        "command": "editor.actions.findWithArgs",
+        "args": {
+            "findInSelection": false,
+            "isCaseSensitive": false,
+            "isRegex": true,
+            "matchWholeWord": false
+        },
+        "key": "space f",
+        "when": "neovim.mode == 'normal' && editorTextFocus"
+    },
+    {
         "command": "runCommands",
         "args": {
             "commands": [
@@ -357,7 +372,7 @@
                 }
             ]
         },
-        "key": "space f",
+        "key": "space n",
         "when": "neovim.mode == 'normal' && editorTextFocus"
     },
     // Join lines in visual mode

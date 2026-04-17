@@ -49,6 +49,10 @@
         "key": "ctrl+f",
         "command": "-actions.find",
     },
+    {
+        "key": "ctrl+h",
+        "command": "-editor.action.startFindReplaceAction",
+    },
     // -----------------------------------
     // Open workspace
     {

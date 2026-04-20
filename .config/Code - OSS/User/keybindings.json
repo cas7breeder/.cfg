@@ -2,8 +2,8 @@
 [
     // ---------- UNMAP SECTION ----------
     {
-        "key": "ctrl+w",
         "command": "-workbench.action.closeActiveEditor",
+        "key": "ctrl+w",
     },
     {
         "command": "-workbench.action.closeWindow",
@@ -238,7 +238,7 @@
     {
         "command": "workbench.action.closeActiveEditor",
         "key": "alt+q",
-        "when": "neovim.mode != 'insert' && (editorTextFocus || inSettingsEditor || inKeybindings || inWelcome)"
+        "when": "neovim.mode != 'insert' && !activeEditorGroupEmpty"
     },
     {
         "command": "workbench.action.closeFolder",

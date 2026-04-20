@@ -99,7 +99,7 @@ cmd move-parent &{{
 
 
 cmd trash ${{                   # requires trash-cli
-    printf "$fx" | xargs -d '\n' trash-put --
+    printf "$fx" | xargs -r -d '\n' trash-put --
     lf -remote "send reload"
 }
 

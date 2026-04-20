@@ -1,4 +1,5 @@
 {
+    "security.workspace.trust.enabled": false,
     "vscode-neovim.enableNeovimOnly": true,
     "workbench.editor.useModal": "off",
     "zenMode.hideLineNumbers": false,

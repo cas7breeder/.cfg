@@ -208,7 +208,7 @@
     {
         "key": "escape",
         "command": "workbench.action.closeSidebar",
-        "when": "filesExplorerFocus && !inputFocus"
+        "when": "sideBarFocus && !inputFocus"
     },
     // Move tab to the opposite group
     {

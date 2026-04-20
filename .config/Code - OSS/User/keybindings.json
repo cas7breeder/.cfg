@@ -53,6 +53,10 @@
         "key": "ctrl+h",
         "command": "-editor.action.startFindReplaceAction",
     },
+    {
+        "key": "ctrl+shift+s",
+        "command": "-workbench.action.files.saveLocalFile"
+    },
     // -----------------------------------
     // Open workspace
     {
@@ -236,10 +240,20 @@
         "key": "alt+q",
         "when": "neovim.mode != 'insert' && (editorTextFocus || inSettingsEditor || inKeybindings || inWelcome)"
     },
+    {
+        "command": "workbench.action.closeFolder",
+        "key": "alt+shift+q",
+        "when": "neovim.mode != 'insert' && (editorTextFocus || inSettingsEditor || inKeybindings || inWelcome)"
+    },
     // Save file
     {
         "command": "workbench.action.files.save",
         "key": "space s",
+        "when": "neovim.mode == 'normal' && editorTextFocus && !filesExplorerFocus"
+    },
+    {
+        "key": "ctrl+shift+s",
+        "command": "workbench.action.saveWorkspaceAs",
         "when": "neovim.mode == 'normal' && editorTextFocus && !filesExplorerFocus"
     },
     // Split editor vertically

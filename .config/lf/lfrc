@@ -58,6 +58,8 @@ map <a-f> push $touch<space>
 # TODO: Dedicated keys for file opener actions
 #map o &mimeopen $f
 #map O $mimeopen --ask $f
+map ov open-in-vscode
+map O open-dir-in-vscode
 
 map q                               # remap default quit
 map Q quit
@@ -185,4 +187,18 @@ cmd chmod_toggle ${{
         fi
     done
     lf -remote "send reload"
+}}
+
+# Open selected files
+cmd open-in-vscode ${{
+    printf "%s\n" "$fx" | xargs -r -d '\n' sh -c 'code -n -- "$@" >/dev/null 2>&1 & disown' _
+}}
+
+# Open current directory
+cmd open-dir-in-vscode ${{
+    if [[ "${f%.code-workspace}" != "$f" ]]; then
+        code -n -- "$f" >/dev/null 2>&1 & disown
+    else
+        code -n -- "$PWD" >/dev/null 2>&1 & disown
+    fi
 }}

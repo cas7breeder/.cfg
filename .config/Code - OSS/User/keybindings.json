@@ -393,6 +393,11 @@
         "when": "neovim.mode != 'insert' && editorTextFocus && !filesExplorerFocus"
     },
     {
+        "key": "ctrl+l",
+        "command": "toggleFindInSelection",
+        "when": "findWidgetFocused"
+    },
+    {
         "command": "runCommands",
         "args": {
             "commands": [

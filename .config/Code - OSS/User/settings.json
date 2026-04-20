@@ -47,10 +47,23 @@
         "list.activeSelectionBackground": "#2a4f86aa",
         "list.inactiveSelectionBackground": "#2a4f86aa"
     },
+    "workbench.iconTheme": "material-icon-theme",
     // Auto-completion, intellisense, quickSuggestions
     "editor.inlineSuggest.enabled": true,
     "editor.tabCompletion": "onlySnippets",
-    //"workbench.iconTheme": "quill-icons-minimal",
+    // Performance improvements
+    "workbench.startupEditor": "none",
+    "editor.smoothScrolling": false,
     // Controls whether opened editors show as preview. Preview editors are reused until they are kept (e.g. via double click or editing) and show up with an italic font style.
-    //"workbench.editor.enablePreview": false
+    "workbench.editor.enablePreview": false
+    // "git.enabled": false,
+    // "git.decorations.enabled": false,
+    // More potential performance optimizations
+    // "editor.largeFileOptimizations": true,
+    // "editor.codeLens": false,
+    // "files.maxMemoryForLargeFilesMB": 4096,
+    // "editor.maxTokenizationLineLength": 2000
+    // Disable Python's LSP background tasks
+    // "python.analysis.indexing": false,
+    // "python.analysis.autoImportCompletions": false
 }

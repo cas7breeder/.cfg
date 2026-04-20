@@ -57,6 +57,10 @@
         "key": "ctrl+shift+s",
         "command": "-workbench.action.files.saveLocalFile"
     },
+    {
+        "key": "ctrl+k c",
+        "command": "-workbench.files.action.compareWithClipboard",
+    },
     // -----------------------------------
     // Open workspace
     {

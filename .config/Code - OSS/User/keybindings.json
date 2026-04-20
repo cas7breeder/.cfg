@@ -367,15 +367,26 @@
     },
     // Find remap
     {
-        "command": "editor.actions.findWithArgs",
+        "command": "runCommands",
         "args": {
-            "findInSelection": false,
-            "isCaseSensitive": false,
-            "isRegex": true,
-            "matchWholeWord": false
+            "commands": [
+                {
+                    "command": "editor.actions.findWithArgs",
+                    "args": {
+                        "findInSelection": false,
+                        "isCaseSensitive": false,
+                        "isRegex": true,
+                        "matchWholeWord": false
+                    }
+                },
+                {
+                    "command": "toggleFindInSelection",
+                    "when": "editorHasSelection"
+                }
+            ]
         },
         "key": "space f",
-        "when": "neovim.mode == 'normal' && editorTextFocus && !filesExplorerFocus"
+        "when": "neovim.mode != 'insert' && editorTextFocus && !filesExplorerFocus"
     },
     {
         "command": "runCommands",

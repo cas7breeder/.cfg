@@ -194,7 +194,7 @@ cmd open-in-vscode ${{
     printf "%s\n" "$fx" | xargs -r -d '\n' sh -c 'code -n -- "$@" >/dev/null 2>&1 & disown' _
 }}
 
-# Open current directory
+# Open current directory or a workspace file
 cmd open-dir-in-vscode ${{
     if [[ "${f%.code-workspace}" != "$f" ]]; then
         code -n -- "$f" >/dev/null 2>&1 & disown

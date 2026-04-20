@@ -171,3 +171,14 @@ colors() {
         echo; echo
     done
 }
+
+lfcd () {
+    # `command` is needed in case `lfcd` is aliased to `lf`
+    cd "$(command lf -print-last-dir "$@")"
+}
+
+
+# --------------------------------------------------------------------
+# KEYBINDINGS
+
+bind '"\C-o":"lfcd\C-m"'

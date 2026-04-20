@@ -4,6 +4,7 @@ vim.keymap.set("n", "<M-q>", "<cmd>q<CR>")
 vim.keymap.set("n", "<leader>s", "<cmd>w<CR>")
 vim.keymap.set("n", "<M-n>", "<cmd>enew<CR>")
 vim.keymap.set("n", "<leader>c", "<C-w>x")
+vim.keymap.set("n", "<M-c>", "<C-w>=")
 
 vim.keymap.set("v", "<leader>j", "<cmd>'<,'>join<CR>")
 

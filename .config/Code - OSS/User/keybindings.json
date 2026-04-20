@@ -232,7 +232,7 @@
     {
         "command": "workbench.action.files.newUntitledFile",
         "key": "alt+n",
-        "when": "neovim.mode == 'normal' && editorTextFocus"
+        "when": "neovim.mode != 'insert'"
     },
     // Close file
     {
@@ -425,12 +425,12 @@
         "args": "<Space>p",
         // Invoke the binding with this key sequence.
         "key": "space p",
-        "when": "editorTextFocus && neovim.mode != 'insert' && !filesExplorerFocus"
+        "when": "neovim.mode != 'insert' && editorTextFocus && !filesExplorerFocus"
     },
     // Zoomiz extension
     {
         "key": "space l",
         "command": "zoomiz.jump",
-        "when": "nevim.mode != 'insert' && editorTextFocus && !filesExplorerFocus"
+        "when": "neovim.mode != 'insert' && editorTextFocus && !filesExplorerFocus"
     }
 ]

@@ -20,7 +20,8 @@ HISTTIMEFORMAT="%F %H:%M "
 HISTSIZE=50000
 # In file
 HISTFILESIZE=5000000
-HISTCONTROL="ignorespace"
+# Ignore duplicates and commands starting with space
+HISTCONTROL="ignoreboth"
 HISTIGNORE="ls:ls -*:ll:pwd:pwd -P:clear:history:git st:git br:vim:vimo"
 
 # Sync history before each prompt

@@ -101,7 +101,7 @@ cmd move-parent &{{
 cmd trash ${{                   # requires trash-cli
     printf "$fx" | xargs -r -d '\n' trash-put --
     lf -remote "send reload"
-}
+}}
 
 
 cmd fzf-restore ${{             # restore trashed files; requires fzf
@@ -130,6 +130,7 @@ cmd delete ${{
 
     printf "\n\n"
     lf -remote "send reload"
+    set +f
 }}
 
 

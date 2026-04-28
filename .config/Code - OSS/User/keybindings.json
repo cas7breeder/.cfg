@@ -130,6 +130,11 @@
         "command": "selectPrevPageSuggestion",
         "when": "neovim.mode != 'visual' && editorTextFocus  && suggestWidgetVisible && suggestWidgetHasFocusedSuggestion"
     },
+    {
+        "key": "escape",
+        "command": "hideSuggestWidget",
+        "when": "neovim.mode != 'visual' && editorTextFocus  && suggestWidgetVisible && suggestWidgetHasFocusedSuggestion"
+    },
     // Quick open dropdown navigation
     {
         "key": "ctrl+j",
@@ -232,6 +237,12 @@
         "when": "neovim.mode != 'insert' && editorTextFocus && !filesExplorerFocus"
     },
     // ------ File/editor actions
+    // Open markdown preview
+    {
+        "key": "ctrl+shift+v",
+        "command": "markdown.showPreview",
+        "when": "neovim.mode != 'insert' && editorTextFocus && !filesExplorerFocus && editorLangId =~ /^(markdown|prompt|instructions|chatagent|skill)$/",
+    },
     // Open new blank file
     {
         "command": "workbench.action.files.newUntitledFile",

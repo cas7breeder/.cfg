@@ -146,6 +146,11 @@
         "command": "workbench.action.quickOpenSelectPrevious",
         "when": "inQuickOpen"
     },
+    {
+        "key": "ctrl+l",
+        "command": "workbench.action.alternativeAcceptSelectedQuickOpenItem",
+        "when": "inQuickOpen"
+    },
     // Navigate between open editors
     {
         "command": "workbench.action.nextEditorInGroup",
@@ -223,7 +228,7 @@
     {
         "command": "workbench.action.moveEditorToLeftGroup",
         "key": "alt+shift+h",
-        "when": "(editorTextFocus || inSettingsEditor || inKeybindings || inWelcome"
+        "when": "editorTextFocus || inSettingsEditor || inKeybindings || inWelcome"
     },
     {
         "command": "workbench.action.moveEditorToRightGroup",

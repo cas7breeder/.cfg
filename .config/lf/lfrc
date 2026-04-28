@@ -89,7 +89,7 @@ map gd cd ~/Downloads
 map gc cd ~/.config
 map gw cd ~/work
 map gl cd ~/work/conspectus
-
+map gw cd ~/work/it-wiki
 
 # ------------------------ FUNCTIONS ---------------------------
 cmd move-parent &{{
@@ -190,12 +190,12 @@ cmd chmod_toggle ${{
     lf -remote "send reload"
 }}
 
-# Open selected files
+# Open selected files in VSCode
 cmd open-in-vscode ${{
     printf "%s\n" "$fx" | xargs -r -d '\n' sh -c 'code -n -- "$@" >/dev/null 2>&1 & disown' _
 }}
 
-# Open current directory or a workspace file
+# Open current directory or a workspace file in VSCode
 cmd open-dir-in-vscode ${{
     if [[ "${f%.code-workspace}" != "$f" ]]; then
         code -n -- "$f" >/dev/null 2>&1 & disown

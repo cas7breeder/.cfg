@@ -95,7 +95,7 @@ alias du="du -h"
 alias free="free -m"
 
 alias config="/usr/bin/git --git-dir=$HOME/work/.cfg --work-tree=$HOME"
-alias sshconfig="/usr/bin/git --git-dir=$HOME/work/.ssh --work-tree=$HOME/.ssh"
+alias sshc="/usr/bin/git --git-dir=$HOME/work/sshconfig --work-tree=$HOME/.ssh"
 
 alias wlc="wl-copy --type text/plain"
 alias wlp="wl-paste"
@@ -110,6 +110,7 @@ alias vimo="/usr/bin/nvim -O . ."
 
 alias gu="/usr/bin/gitui"
 alias cu="/usr/bin/gitui -d $HOME/work/.cfg -w $HOME"
+alias sshu="/usr/bin/gitui -d $HOME/work/sshconfig -w $HOME/.ssh"
 
 alias pm="pacman"
 # Sync repos

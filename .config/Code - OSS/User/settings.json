@@ -55,7 +55,8 @@
     "workbench.startupEditor": "none",
     "editor.smoothScrolling": false,
     // Controls whether opened editors show as preview. Preview editors are reused until they are kept (e.g. via double click or editing) and show up with an italic font style.
-    "workbench.editor.enablePreview": false
+    "workbench.editor.enablePreview": false,
+    "editor.renderFinalNewline": "on",
     // "git.enabled": false,
     // "git.decorations.enabled": false,
     // More potential performance optimizations

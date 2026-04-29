@@ -1,14 +1,13 @@
 #!/bin/bash
 
-TMPFILE=`mktemp /tmp/vipe.XXXXXXXX`
+TMPFILE=`mktemp /tmp/vip_tmp_file.XXXXXXXX`
 
 # cat stdin (default)
 cat > ${TMPFILE}
 
-# open with the default editor
+# Open with the default editor
 ${VISUAL} ${TMPFILE} < /dev/tty > /dev/tty
 
 cat ${TMPFILE}
 
 rm ${TMPFILE}
-

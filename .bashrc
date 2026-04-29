@@ -13,6 +13,7 @@
 
 export EDITOR="/usr/bin/nvim"
 export VISUAL=$EDITOR
+export PATH="$HOME/bin:$PATH"
 
 # HIST* variables must be defined before PROMPT_COMMAND
 HISTTIMEFORMAT="%F %H:%M "

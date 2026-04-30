@@ -143,6 +143,9 @@ alias pt="pactree"
 # List which packages depend on a package
 alias ptr="pactree -r"
 
+# Claude code aliases
+alias clc="/usr/bin/claude"
+
 
 # --------------------------------------------------------------------
 # GLOBAL FUNCTIONS

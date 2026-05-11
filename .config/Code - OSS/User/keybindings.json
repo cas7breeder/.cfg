@@ -345,7 +345,7 @@
         "key": "space k",
         "when": "neovim.mode == 'normal' && editorTextFocus && !filesExplorerFocus"
     },
-    // Go to all symbols 
+    // Go to all symbols
     {
         "key": "space shift+k",
         "command": "workbench.action.showAllSymbols",

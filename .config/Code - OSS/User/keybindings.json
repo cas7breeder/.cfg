@@ -130,11 +130,6 @@
         "command": "selectPrevPageSuggestion",
         "when": "neovim.mode != 'visual' && editorTextFocus  && suggestWidgetVisible && suggestWidgetHasFocusedSuggestion"
     },
-    {
-        "key": "escape",
-        "command": "hideSuggestWidget",
-        "when": "neovim.mode != 'visual' && editorTextFocus  && suggestWidgetVisible && suggestWidgetHasFocusedSuggestion"
-    },
     // Quick open dropdown navigation
     {
         "key": "ctrl+j",

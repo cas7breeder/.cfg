@@ -224,16 +224,29 @@
         "command": "workbench.action.closeSidebar",
         "when": "sideBarFocus && !inputFocus"
     },
-    // Move tab to the opposite group
+    // Move tab to the left
     {
-        "command": "workbench.action.moveEditorToLeftGroup",
+        "command": "workbench.action.moveEditorLeftInGroup",
         "key": "alt+shift+h",
         "when": "editorTextFocus || inSettingsEditor || inKeybindings || inWelcome"
     },
+    // Move tab to the left group if it's the first one in the group
+    {
+        "command": "workbench.action.moveEditorToLeftGroup",
+        "key": "alt+shift+h",
+        "when": "activeEditorIsFirstInGroup && (editorTextFocus || inSettingsEditor || inKeybindings || inWelcome)"
+    },
+    // Move tab to the right
+    {
+        "command": "workbench.action.moveEditorRightInGroup",
+        "key": "alt+shift+l",
+        "when": "editorTextFocus || inSettingsEditor || inKeybindings || inWelcome"
+    },
+    // Move tab to the right group if it's the last one in the group
     {
         "command": "workbench.action.moveEditorToRightGroup",
         "key": "alt+shift+l",
-        "when": "editorTextFocus || inSettingsEditor || inKeybindings || inWelcome"
+        "when": "activeEditorIsLastInGroup && (editorTextFocus || inSettingsEditor || inKeybindings || inWelcome)"
     },
     // Toggle Zen mode
     {

@@ -53,6 +53,9 @@ shopt -s histappend
 # Bash attempts to save all lines of a multiple-line command in the same history entry
 shopt -s cmdhist
 
+# Verify expanded commands before running
+shopt -s histverify
+
 
 # --------------------------------------------------------------------
 # SOURCES

@@ -89,6 +89,7 @@ map gd cd ~/Downloads
 map gc cd ~/.config
 map gw cd ~/work
 map gl cd ~/work/conspectus
+map gp cd ~/work/platform
 map gw cd ~/work/it-wiki
 
 # ------------------------ FUNCTIONS ---------------------------

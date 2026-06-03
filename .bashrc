@@ -36,6 +36,10 @@ RESET='\[\e[0m\]'
 
 PS1="${ORANGE}\u@\h${RESET} ${BOLD_WHITE}\W${RESET}${YELLOW}\$(__git_ps1 ' %s')${RESET} \\$ "
 
+# Move claude config, which is ~/.claude by default
+# TODO: uncomment when supported
+#export CLAUDE_CONFIG_DIR="$HOME/.config/claude"
+
 
 # --------------------------------------------------------------------
 # SHELL OPTIONS
@@ -147,7 +151,8 @@ alias pt="pactree"
 alias ptr="pactree -r"
 
 # Claude code aliases
-alias clc="/usr/bin/claude"
+alias clc="pushd $HOME/work/claude-convo; /usr/bin/claude"
+alias cl="/usr/bin/claude"
 
 
 # --------------------------------------------------------------------

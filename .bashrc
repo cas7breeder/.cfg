@@ -154,6 +154,11 @@ alias ptr="pactree -r"
 alias clc="pushd $HOME/work/claude-convo; /usr/bin/claude"
 alias cl="/usr/bin/claude"
 
+# For human readability
+alias dif="diff -yN --left-column"
+# For human readability resolving directory changes
+alias difr="diff -rq"
+
 
 # --------------------------------------------------------------------
 # GLOBAL FUNCTIONS

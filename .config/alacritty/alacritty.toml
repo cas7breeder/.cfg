@@ -124,3 +124,9 @@ instance = "Alacritty"
 [window.padding]
 x = 5
 y = 5
+
+# With shift+enter insert ESC+CR - required for claude code agent newlines
+[[keyboard.bindings]]
+key = "Return"
+mods = "Shift"
+chars = "\u001B\r"

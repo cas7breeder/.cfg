@@ -34,6 +34,9 @@ return function(use)
       }
   }
 
+  -- Tmux navigation
+  use 'christoomey/vim-tmux-navigator'
+
   -- use {
   --   'lukas-reineke/indent-blankline.nvim',
   --   config = function()

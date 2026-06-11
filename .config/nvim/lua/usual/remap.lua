@@ -24,11 +24,20 @@ vim.keymap.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 -- Reload config
 vim.keymap.set("n", "<leader>R", "<cmd>ReloadConfig<CR>")
 
+
 -- Improve split window navigation
-vim.keymap.set("n", "<A-h>", "<C-w>h")
-vim.keymap.set("n", "<A-j>", "<C-w>j")
-vim.keymap.set("n", "<A-k>", "<C-w>k")
-vim.keymap.set("n", "<A-l>", "<C-w>l")
+
+-- vim.keymap.set("n", "<A-h>", "<C-w>h")
+-- vim.keymap.set("n", "<A-j>", "<C-w>j")
+-- vim.keymap.set("n", "<A-k>", "<C-w>k")
+-- vim.keymap.set("n", "<A-l>", "<C-w>l")
+
+vim.g.tmux_navigator_no_mappings = 1
+
+vim.keymap.set("n", "<A-h>", "<cmd>TmuxNavigateLeft<cr>")
+vim.keymap.set("n", "<A-j>", "<cmd>TmuxNavigateDown<cr>")
+vim.keymap.set("n", "<A-k>", "<cmd>TmuxNavigateUp<cr>")
+vim.keymap.set("n", "<A-l>", "<cmd>TmuxNavigateRight<cr>")
 
 -- Split window like in vscode
 vim.keymap.set("n", "<leader>v", "<cmd>vsp<CR>")

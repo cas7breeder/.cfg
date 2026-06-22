@@ -155,9 +155,7 @@ alias clc="pushd $HOME/work/claude-convo; /usr/bin/claude"
 alias cl="/usr/bin/claude"
 
 # For human readability
-alias dif="diff -yN --left-column"
-# For human readability resolving directory changes
-alias difr="diff -rq"
+alias sdelta=" delta --side-by-side"
 
 
 # --------------------------------------------------------------------
@@ -194,6 +192,20 @@ colors() {
 lfcd () {
     # `command` is needed in case `lfcd` is aliased to `lf`
     cd "$(command lf -print-last-dir "$@")"
+}
+
+# DIR diffs
+# delta side-by-side version
+ddelta() {
+    # For human readability resolving directory changes
+    # diff flags: --exclude= repeat for node_modules, etc
+
+    diff -ruN --exclude=.git "$1" "$2" | delta --side-by-side --navigate
+}
+
+# diffnav version
+dnav() {
+    diff -ruN "$1" "$2" | diffnav
 }
 
 

@@ -144,6 +144,8 @@ alias pmnl="pacman -Qn"
 alias pmel="pacman -Qe"
 # Search the database for packages containing a specific file:
 alias pmf="pacman -F"
+# List installed packages
+alias pmq="pacman -Qq"
 
 # List dependency tree of a package
 alias pt="pactree"
@@ -156,6 +158,8 @@ alias cl="/usr/bin/claude"
 
 # For human readability
 alias sdelta=" delta --side-by-side"
+
+alias spt="spotatui"
 
 
 # --------------------------------------------------------------------

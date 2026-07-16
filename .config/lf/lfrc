@@ -46,9 +46,10 @@ map ` copy-file-paths
 map ~ %{ printf "%q" "$PWD" | wl-copy --type text/plain; }      # copy current directory to clipboard
 map Y copy-file-contents
 
-map EE edit-config
-map EG $/usr/bin/gitui
-map EC $/usr/bin/gitui -d $HOME/work/.cfg -w $HOME
+map cc edit-config
+
+map GG $/usr/bin/gitui
+map GC $/usr/bin/gitui -d $HOME/work/.cfg -w $HOME
 
 map RR reload-config
 
@@ -77,7 +78,7 @@ map dd cut
 map DD trash                        # move to trash - "soft delete"
 map U fzf-restore                   # restore from trash
 map <a-D> delete                    # delete using rm
-map e $$EDITOR "$fx"                # open file/dir in neovim
+map e $exec $EDITOR "$fx"           # open file/dir in neovim
 map x chmod_toggle
 
 map J move-parent down
@@ -89,7 +90,7 @@ map gd cd ~/Downloads
 map gc cd ~/.config
 map gw cd ~/work
 map gl cd ~/work/conspectus
-map gp cd ~/work/am_paas
+map gp cd ~/work/am_saas
 
 # ------------------------ FUNCTIONS ---------------------------
 cmd move-parent &{{

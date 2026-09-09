@@ -153,8 +153,9 @@ alias pt="pactree"
 alias ptr="pactree -r"
 
 # Claude code aliases
-alias clc="pushd $HOME/work/claude-convo; /usr/bin/claude"
+alias clc='pushd "$(mktemp -d /tmp/claude-conv.XXXX)" && /usr/bin/claude'
 alias cl="/usr/bin/claude"
+alias ca="claude agents"
 
 # For human readability
 alias sdelta=" delta --side-by-side"

@@ -46,7 +46,7 @@ map ` copy-file-paths
 map ~ %{ printf "%q" "$PWD" | wl-copy --type text/plain; }      # copy current directory to clipboard
 map Y copy-file-contents
 
-map cc edit-config
+map EE edit-config
 
 map GG $/usr/bin/gitui
 map GC $/usr/bin/gitui -d $HOME/work/.cfg -w $HOME

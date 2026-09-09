@@ -153,8 +153,8 @@ alias pt="pactree"
 alias ptr="pactree -r"
 
 # Claude code aliases
-alias clc='pushd "$(mktemp -d /tmp/claude-conv.XXXX)" && /usr/bin/claude'
-alias cl="/usr/bin/claude"
+alias clc='pushd "$(mktemp -d /tmp/claude-conv.XXXX)" && /usr/bin/claude "caveman mode on"'
+alias cl="/usr/bin/claude \"caveman mode on\""
 alias ca="claude agents"
 
 # For human readability

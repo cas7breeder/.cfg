@@ -90,7 +90,9 @@ map gd cd ~/Downloads
 map gc cd ~/.config
 map gw cd ~/work
 map gl cd ~/work/conspectus
-map gp cd ~/work/am_saas
+map gp cd ~/work/am
+map zf filter
+map zc setfilter
 
 # ------------------------ FUNCTIONS ---------------------------
 cmd move-parent &{{

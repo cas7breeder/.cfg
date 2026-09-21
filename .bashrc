@@ -116,7 +116,7 @@ alias vim="/usr/bin/nvim"
 alias vimo="/usr/bin/nvim -O . ."
 
 alias gu="/usr/bin/gitui"
-alias cu="/usr/bin/gitui -d $HOME/work/.cfg -w $HOME"
+alias configu="/usr/bin/gitui -d $HOME/work/.cfg -w $HOME"
 alias sshu="/usr/bin/gitui -d $HOME/work/sshconfig -w $HOME/.ssh"
 
 alias pm="pacman"
@@ -154,7 +154,7 @@ alias ptr="pactree -r"
 
 # Claude code aliases
 alias clc='pushd "$(mktemp -d /tmp/claude-conv.XXXX)" && /usr/bin/claude "caveman mode on"'
-alias cl="/usr/bin/claude \"caveman mode on\""
+alias cl="/usr/bin/claude"
 alias ca="claude agents"
 
 # For human readability
@@ -218,3 +218,4 @@ dnav() {
 # KEYBINDINGS
 
 bind '"\C-o":"lfcd\C-m"'
+export PATH="$HOME/.local/bin:$PATH"

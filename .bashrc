@@ -9,13 +9,23 @@
 
 
 # --------------------------------------------------------------------
+# SOURCES
+
+# Custom bash completion can be added here ~/.local/share/bash-completion/completions/<tool>
+# Source bash completion if the file is readable; bash-completion may define its own sudo completion
+[ -r /usr/share/bash-completion/bash_completion ] && . /usr/share/bash-completion/bash_completion
+[ -r /usr/share/git/completion/git-prompt.sh ] && . /usr/share/git/completion/git-prompt.sh
+# Stub so PS1 never errors if git-prompt.sh is missing
+declare -f __git_ps1 >/dev/null || __git_ps1() { :; }
+
+# Enables tab-completion for commands after sudo
+complete -cf sudo
+
+
+# --------------------------------------------------------------------
 # ENVIRONMENT
 
-export EDITOR="/usr/bin/nvim"
-export VISUAL=$EDITOR
-export PATH="$HOME/bin:$PATH"
-
-# HIST* variables must be defined before PROMPT_COMMAND
+# History
 HISTTIMEFORMAT="%F %H:%M "
 # In memory
 HISTSIZE=50000
@@ -25,8 +35,8 @@ HISTFILESIZE=5000000
 HISTCONTROL="ignoreboth"
 HISTIGNORE="ls:ls -*:ll:pwd:pwd -P:clear:history:git st:git br:vim:vimo"
 
-# Sync history before each prompt
-PROMPT_COMMAND='history -a; history -n'"${PROMPT_COMMAND:+; $PROMPT_COMMAND}"
+# Append history after each command
+PROMPT_COMMAND='history -a'"${PROMPT_COMMAND:+; $PROMPT_COMMAND}"
 
 # Colors
 ORANGE='\[\e[38;5;208m\]'
@@ -46,6 +56,7 @@ PS1="${ORANGE}\u@\h${RESET} ${BOLD_WHITE}\W${RESET}${YELLOW}\$(__git_ps1 ' %s')$
 
 # Set vi mode
 set -o vi
+bind -m vi-insert '"\C-l": clear-screen'
 
 # Bash won't get SIGWINCH if another process is in the foreground.
 # Enable checkwinsize so that bash will ask the kernel for the terminal size when it regains control
@@ -59,18 +70,6 @@ shopt -s cmdhist
 
 # Verify expanded commands before running
 shopt -s histverify
-
-
-# --------------------------------------------------------------------
-# SOURCES
-
-# Custom bash completion can be added here ~/.local/share/bash-completion/completions/<tool>
-# Source bash completion if the file is readable; bash-completion may define its own sudo completion
-[ -r /usr/share/bash-completion/bash_completion ] && . /usr/share/bash-completion/bash_completion
-[ -r /usr/share/git/completion/git-prompt.sh ] && . /usr/share/git/completion/git-prompt.sh
-
-# Enables tab-completion for commands after sudo
-complete -cf sudo
 
 
 # --------------------------------------------------------------------
@@ -158,7 +157,7 @@ alias cl="/usr/bin/claude"
 alias ca="claude agents"
 
 # For human readability
-alias sdelta=" delta --side-by-side"
+alias sdelta="delta --side-by-side"
 
 alias spt="spotatui"
 
@@ -218,4 +217,6 @@ dnav() {
 # KEYBINDINGS
 
 bind '"\C-o":"lfcd\C-m"'
-export PATH="$HOME/.local/bin:$PATH"
+
+# GUI sudo password prompt for non-tty contexts (e.g. Claude Code). Use: sudo -A <cmd>
+export SUDO_ASKPASS="$HOME/.local/bin/sudo-askpass"

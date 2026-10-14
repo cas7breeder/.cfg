@@ -77,7 +77,8 @@ map d                               # remap default key
 map dd cut
 map DD trash                        # move to trash - "soft delete"
 map U fzf-restore                   # restore from trash
-map <a-D> delete                    # delete using rm
+map <a-D> delete                    # delete using rm (alt+shift+d inside tmux)
+map <s-d> delete                    # alt+shift+d in bare alacritty (kitty keyboard protocol; lf drops the alt)
 map e $exec $EDITOR "$fx"           # open file/dir in neovim
 map x chmod_toggle
 

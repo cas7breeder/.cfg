@@ -8,23 +8,24 @@ lsp_zero.on_attach(function(client, bufnr)
     lsp_zero.default_keymaps({buffer = bufnr})
 end)
 
-require('mason-lspconfig').setup({
-    ensure_installed = {
-        'helm_ls',
-        'lua_ls',
-        'terraformls',
-        'ansiblels',
-        -- 'ansible-lint',
-        'bashls',
-        'dockerls',
-        'docker_compose_language_service',
-        -- 'nginx_language_server',
-        'pyright',
-    },
-    handlers = {
-        lsp_zero.default_setup,
-    },
-})
+-- LSP servers disabled for now. Uncomment to re-enable.
+-- require('mason-lspconfig').setup({
+--     ensure_installed = {
+--         'helm_ls',
+--         'lua_ls',
+--         'terraformls',
+--         'ansiblels',
+--         -- 'ansible-lint',
+--         'bashls',
+--         'dockerls',
+--         'docker_compose_language_service',
+--         -- 'nginx_language_server',
+--         'pyright',
+--     },
+--     handlers = {
+--         lsp_zero.default_setup,
+--     },
+-- })
 
 lsp_zero.setup()
 

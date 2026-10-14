@@ -2,6 +2,7 @@
 
 set drawbox                     # draw boxes around panes with box drawing characters
 set hidden true                 # show hidden files
+set watch true                  # auto-refresh all lf instances on filesystem changes
 set icons true
 set shell bash
 
@@ -104,7 +105,7 @@ cmd move-parent &{{
 
 cmd trash ${{                   # requires trash-cli
     printf "$fx" | xargs -r -d '\n' trash-put --
-    lf -remote "send reload"
+    lf -remote "send $id reload"
 }}
 
 
@@ -117,7 +118,7 @@ cmd fzf-restore ${{             # restore trashed files; requires fzf
       sed -z 's/\n/,/g;s/,$/\n/')"
     echo $ids | trash-restore
     clear
-    lf -remote "send reload"
+    lf -remote "send $id reload"
 }}
 
 
@@ -133,7 +134,7 @@ cmd delete ${{
     [ "$ans" = "y" ] && printf "%s\n" "$files" | xargs -r -d '\n' rm -rf --
 
     printf "\n\n"
-    lf -remote "send reload"
+    lf -remote "send $id reload"
     set +f
 }}
 
@@ -191,7 +192,7 @@ cmd chmod_toggle ${{
             chmod +x -- "$file"
         fi
     done
-    lf -remote "send reload"
+    lf -remote "send $id reload"
 }}
 
 # Open selected files in VSCode
